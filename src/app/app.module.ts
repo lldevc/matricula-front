@@ -8,6 +8,8 @@ import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProgramaComponent } from './feature/programa/components/programa/programa.component';
+import { ListarProgramaComponent } from './feature/programa/components/listar-programa/listar-programa.component';
 
 
 
@@ -15,7 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProgramaComponent,
+    ListarProgramaComponent
   ],
   imports: [
     BrowserModule,
