@@ -1,7 +1,12 @@
-<div class="body">
-    <div class="login">
+<div class="body d-flex justify-content-around">
+    
+    <div>
+        <p>MATRICULATE Y EMPIEZA A CONTRUIR TU NUEVO FURTURO<br> CON UN NUEVO IDIOMA</p>
+        <p>REGÍSTRATE <br>YA</p>
+    </div>
+    <div class="container-form">
         <form [formGroup]="form" (ngSubmit)="matricularme()">
-            <p>Login</p>
+            <h1>Datos de matricula</h1>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Nombre completo</mat-label>
                 <input matInput formControlName="nombre">
@@ -25,13 +30,11 @@
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Idioma de interes</mat-label>
                 <mat-select formControlName="programa">
-                    
-                        <mat-option *ngFor="let item of listaProgramas | async" value=listaProgramas.id>{{ item.nombre }}</mat-option>
-                    
+                    <mat-option *ngFor="let item of listaProgramas | async" value=listaProgramas.id>{{ item.nombre }}</mat-option>
                 </mat-select>
             </mat-form-field>
             <br>
-            <button type="submit" class="ancho" mat-raised-button color="primary"
+            <button type="submit" class="ancho altura" mat-raised-button color="primary"
                 [disabled]="form.invalid">Matricularme</button>
         </form>
     </div>
