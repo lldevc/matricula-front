@@ -1,0 +1,14 @@
+.body {
+    background-color: black;
+    padding: 50px 75px 70px 75px;
+}
+
+.icon-footer {
+    margin-left: 1rem;
+    height: 24px;
+    width: auto;
+  }
+
+.color {
+    color: #FFF;
+}

@@ -6,18 +6,18 @@
     </div>
     <div class="container-form">
         <form [formGroup]="form" (ngSubmit)="matricularme()">
-            <h1 class="resaltar-h">Datos de matricula</h1>
+            <h1 class="resaltar-h fw-bold">Datos de matricula</h1>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Nombre completo</mat-label>
                 <input matInput formControlName="nombre">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Numero de identificacion</mat-label>
-                <input matInput formControlName="numeroIdentificacion">
+                <input type="number" matInput formControlName="numeroIdentificacion">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput formControlName="email">
+                <input type="email" matInput formControlName="email">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Ciudad</mat-label>

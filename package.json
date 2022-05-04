@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~11.2.8",
     "@angular/platform-browser-dynamic": "~11.2.8",
     "@angular/router": "~11.2.8",
+    "bootstrap-icons": "^1.8.1",
     "ngx-cookie-service": "^11.0.2",
     "rxjs": "~6.6.7",
     "tslib": "^2.2.0",
