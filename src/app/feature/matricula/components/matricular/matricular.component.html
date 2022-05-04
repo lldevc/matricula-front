@@ -1,12 +1,12 @@
 <div class="body d-flex justify-content-around">
     
     <div>
-        <p>MATRICULATE Y EMPIEZA A CONTRUIR TU NUEVO FURTURO<br> CON UN NUEVO IDIOMA</p>
-        <p>REGÍSTRATE <br>YA</p>
+        <p class="primary-text">MATRICULATE Y EMPIEZA A CONTRUIR <br>UN <span class="resaltar">NUEVO FURTURO</span> CON UN <br>NUEVO <span class="resaltar">IDIOMA</span></p>
+        <h2 class="h2-text"><span class="resaltar-h">REGÍSTRATE</span> YA</h2>
     </div>
     <div class="container-form">
         <form [formGroup]="form" (ngSubmit)="matricularme()">
-            <h1>Datos de matricula</h1>
+            <h1 class="resaltar-h">Datos de matricula</h1>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Nombre completo</mat-label>
                 <input matInput formControlName="nombre">
