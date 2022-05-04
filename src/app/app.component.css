@@ -3,4 +3,10 @@
     display: flex;
     flex-flow: column;
   }
-
+  
+.body {
+  background-image: url('./../assets/img/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
