@@ -8,7 +8,12 @@ export class MatriculaService {
     constructor(protected http: HttpService) {}
 
     public guardar(matricularCrearRequest: MatriculaCrearRequest) {
-        return this.http.doPost<MatriculaCrearRequest, boolean>('localhost:8090/inscripcion-ms/matriculas', matricularCrearRequest,
+        console.log('guardar -->', matricularCrearRequest)
+        return this.http.doPost<MatriculaCrearRequest, Response>('/inscripcion-ms/matriculas', matricularCrearRequest,
                                                     this.http.optsName('crear/actualizar matricula'));
       }
 }
+
+interface Response {
+    valor: number;
+  }

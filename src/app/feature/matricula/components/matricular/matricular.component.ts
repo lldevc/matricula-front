@@ -9,6 +9,14 @@ import { MatriculaCrearRequest } from '../../shared/model/MatriculaCrearRequest'
 
 
 
+interface Usuario {
+  numeroIdentificacion: number;
+  nombre: string;
+  email: string;
+  ciudad: string;
+  direccion: string;
+}
+
 @Component({
   selector: 'app-matricular',
   templateUrl: './matricular.component.html',
@@ -20,36 +28,28 @@ export class MatricularComponent implements OnInit {
   public form: FormGroup;
 
   constructor(
-    private  fb: FormBuilder, 
-    protected programaService: ProgramaService, 
+    private fb: FormBuilder,
+    protected programaService: ProgramaService,
     protected matriculaService: MatriculaService
-    ) {
+  ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
       numeroIdentificacion: ['', Validators.required],
       email: ['', Validators.required],
       ciudad: ['', Validators.required],
       direccion: ['', Validators.required],
-      programa: [, Validators.required]
+      programaId: [, Validators.required]
     })
   }
 
   ngOnInit(): void {
-    this.consultarProgramas();
-  }
-
-  consultarProgramas() {
     this.listaProgramas = this.programaService.consultar();
   }
 
-  matricularme() {
+  async matricularme() {
 
-    let programaDB: Programa = null;
-    this.listaProgramas.subscribe(programs => {
-      const program = programs.find(program => program.id.toString() === this.form.value.programa)
-      console.log(program, this.form.value.programa);
-      programaDB = program;
-    })
+    const programs = await this.listaProgramas.toPromise();
+    const program = programs.find(program => program.id === this.form.value.programaId)
 
     const usuarioMatricula: Usuario = {
       numeroIdentificacion: this.form.value.numeroIdentificacion,
@@ -60,20 +60,16 @@ export class MatricularComponent implements OnInit {
     }
 
     const matriculaCrearRequest: MatriculaCrearRequest = {
-      programa: programaDB,
+      programa: program,
       usuarioMatricula: usuarioMatricula
     }
 
-    console.log(matriculaCrearRequest)
+    const id =  this.matriculaService.guardar(matriculaCrearRequest);
+    
+    id.subscribe(valor =>{
+      console.log('id -> ', valor);
+    }) 
+ 
   }
 
-
-}
-
-interface Usuario {
-  numeroIdentificacion: number;
-  nombre: string;
-  email: string;
-  ciudad: string;
-  direccion: string;
 }
