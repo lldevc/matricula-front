@@ -1,8 +1,10 @@
 <div class="body d-flex justify-content-around">
-    
     <div>
-        <p class="primary-text">MATRICULATE Y EMPIEZA A CONTRUIR <br>UN <span class="resaltar">NUEVO FURTURO</span> CON UN <br>NUEVO <span class="resaltar">IDIOMA</span></p>
+        <p  class="primary-text">MATRICULATE Y EMPIEZA A CONTRUIR <br>UN <span class="resaltar">NUEVO FURTURO</span> CON UN <br>NUEVO <span class="resaltar">IDIOMA</span></p>
         <h2 class="h2-text"><span class="resaltar-h">REGÍSTRATE</span> YA</h2>
+    </div>
+    <div>
+        <mat-spinner *ngIf="loading" diameter="60"></mat-spinner>
     </div>
     <div class="container-form">
         <form [formGroup]="form" (ngSubmit)="matricularme()">

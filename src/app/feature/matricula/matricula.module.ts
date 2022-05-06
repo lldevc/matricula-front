@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // Componentes
 import { MatricularComponent } from './components/matricular/matricular.component';
@@ -20,22 +22,28 @@ import { MatriculaService } from './shared/service/matricula.service';
   ],
   imports: [
     CommonModule,
+    ProgramaModule,
+    ReactiveFormsModule,
     MatSliderModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    ReactiveFormsModule,
-    ProgramaModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatricularComponent,
+    CommonModule,
+    ProgramaModule,
+    ReactiveFormsModule,
     MatSliderModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    ReactiveFormsModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [MatriculaService]
 })

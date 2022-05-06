@@ -49,3 +49,12 @@
     color: #5384FF;
     font-weight: 700;
 }
+
+.container-spinner {
+    height: 100%;
+    width: 100%;
+}
+
+.spinner {
+     margin: 0 auto;
+}
