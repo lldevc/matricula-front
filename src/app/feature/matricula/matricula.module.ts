@@ -15,12 +15,22 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // Componentes
 import { MatricularComponent } from './components/matricular/matricular.component';
 import { MatriculaService } from './shared/service/matricula.service';
+import { VerMatriculaComponent } from './components/ver-matricula/ver-matricula.component';
+import { PagarMatriculaComponent } from './components/pagar-matricula/pagar-matricula.component';
+import { ConsultarMatriculaComponent } from './components/consultar-matricula/consultar-matricula.component';
+import { MatriculaRoutingModule } from './matricula-routing.module';
+import { MatriculaComponent } from './components/matricula/matricula.component';
 
 @NgModule({
   declarations: [
-    MatricularComponent
+    MatricularComponent,
+    VerMatriculaComponent,
+    PagarMatriculaComponent,
+    ConsultarMatriculaComponent,
+    MatriculaComponent
   ],
   imports: [
+    MatriculaRoutingModule,
     CommonModule,
     ProgramaModule,
     ReactiveFormsModule,

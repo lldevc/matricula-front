@@ -8,6 +8,7 @@ import { MatriculaService } from '../../shared/service/matricula.service';
 import { MatriculaCrearRequest } from '../../shared/model/MatriculaCrearRequest';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 interface Usuario {
@@ -32,7 +33,8 @@ export class MatricularComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, protected programaService: ProgramaService,
-    protected matriculaService: MatriculaService, private _snackBar: MatSnackBar
+    protected matriculaService: MatriculaService, private _snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -45,6 +47,7 @@ export class MatricularComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = false;
     this.listaProgramas = this.programaService.consultar();
   }
 
@@ -69,8 +72,10 @@ export class MatricularComponent implements OnInit {
     }
 
     this.matriculaService.guardar(matriculaCrearRequest).subscribe(valor =>{
+      this.loading = true;
       console.log('id -> ', valor);
       this.form.reset();
+      this.router.navigate(['matricula/ver-matricula']);
     }, (err: HttpErrorResponse) => {
       this.hayError = true;
       console.error(err);
