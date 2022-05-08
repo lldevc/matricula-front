@@ -17,7 +17,7 @@ const routes: Routes = [
         component: MatricularComponent
       },
       {
-        path: 'ver-matricula',
+        path: 'ver-matricula/:id',
         component: VerMatriculaComponent
       },
       {

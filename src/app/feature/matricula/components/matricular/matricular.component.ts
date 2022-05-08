@@ -9,6 +9,7 @@ import { MatriculaCrearRequest } from '../../shared/model/MatriculaCrearRequest'
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { DataService } from '../../shared/service/data.service';
 
 
 interface Usuario {
@@ -30,11 +31,12 @@ export class MatricularComponent implements OnInit {
   public form: FormGroup;
   hayError: boolean = false;
   loading: boolean = false;
+  programas: Programa[];
 
   constructor(
     private fb: FormBuilder, protected programaService: ProgramaService,
-    protected matriculaService: MatriculaService, private _snackBar: MatSnackBar,
-    private router: Router
+    protected matriculaService: MatriculaService, private _snackBar: MatSnackBar, 
+    private dataService: DataService, private router: Router
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -73,9 +75,10 @@ export class MatricularComponent implements OnInit {
 
     this.matriculaService.guardar(matriculaCrearRequest).subscribe(valor =>{
       this.loading = true;
+      this.dataService.idMatricula$.emit(valor.valor)
       console.log('id -> ', valor);
       this.form.reset();
-      this.router.navigate(['matricula/ver-matricula']);
+      this.router.navigate(['matricula/ver-matricula', valor.valor]);
     }, (err: HttpErrorResponse) => {
       this.hayError = true;
       console.error(err);
