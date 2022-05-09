@@ -1,8 +1,58 @@
-<div class="container ver-matricula">
-    <div class="container">
-        <p>id de la matricula creada: {{ myParam }}</p>
-        
+<div class="container d-flex justify-content-center">
+    <div class="container ver-matricula pt-3">
+        <div class="container encabezado d-flex justify-content-between mb-2 align-items-center">
+            <h4 class="m-0">COMPROBANTE DE PAGO</h4>
+            <button type="button" class="btn btn-outline-secondary boton">Pagar</button>
+        </div>
+        <hr class="mt-0">
+        <div class="container detalles">
+            <div class="row align-items-start">
+                <div class="col">
+                    <label class="label-text">Nombre</label><br>
+                    <span class="bold">{{ nombreUsuario }}</span>
+                </div>
+                <div class="col">
+                    <label class="label-text">Programa</label> <br>
+                    <span class="bold">Programa de {{ nombrePrograma }}</span>
+                </div>
+                <div class="col">
+                    <label class="label-text">Pague sin recargo hasta</label> <br>
+                    <span class="bold">{{ fechaSinRecargo }}</span>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <label class="label-text">Identificacion</label><br>
+                    <span class="bold">{{ identificacion }}</span>
+                </div>
+                <div class="col">
+                    <label class="label-text">Descripcion</label> <br>
+                    <span class="bold">Matricula academica</span>
+                </div>
+                <div class="col">
+                    <label class="label-text">Fecha limite de pago</label> <br>
+                    <span class="bold">{{ fechaLimite }}</span>
+                </div>
+            </div>
+
+            <div class="row align-items-end">
+                <div class="col">
+                    <div class="estado">
+                        <label class="label-text">Estado de pago</label> <br>
+                        <span class="bold">{{ estadoMatricula }}</span>
+                    </div>
+                    
+                </div>
+                <div class="col total-pagar">
+                    <label class="label-text">Total a pagar</label> <br>
+                    <span class="bold">{{ valorMatricula }}</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container logo-container">
+            <img class="logo" src="./../../../../../assets/img/logo4.png">
+        </div>
+
     </div>
-
 </div>
-

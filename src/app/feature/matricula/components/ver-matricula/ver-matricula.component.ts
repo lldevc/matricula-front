@@ -10,15 +10,31 @@ import { MatriculaService } from '../../shared/service/matricula.service';
 })
 export class VerMatriculaComponent implements OnInit {
 
-  myParam: string;
+  formateador = new Intl.NumberFormat("en", { style: "currency", "currency": "USD" });
 
-  constructor(private route: ActivatedRoute, private matriculaService: MatriculaService ) { }
+  valorMatricula;
+  myParam: string;
+  nombreUsuario: string = 'Empty';
+  identificacion: number = null;
+  fechaSinRecargo: string;
+  fechaLimite: string;
+  nombrePrograma: string = 'Empty';
+  estadoMatricula: string = 'Empty';
+
+  constructor(private route: ActivatedRoute, private matriculaService: MatriculaService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => this.myParam = params['id']);
     console.log(this.myParam);
-    this.matriculaService.consultarPorId(this.myParam).subscribe( matricula => {
+    this.matriculaService.consultarPorId(this.myParam).subscribe(matricula => {
       console.log(matricula);
+      this.valorMatricula = this.formateador.format(matricula.valor);
+      this.nombreUsuario = matricula.usuarioMatricula.nombre;
+      this.identificacion = matricula.usuarioMatricula.numeroIdentificacion;
+      this.fechaSinRecargo = matricula.fechaLimitePagoSinRecargo.toLocaleString().split(' ')[0] ;
+      this.fechaLimite = matricula.fechaMaximaPago.toLocaleString().split(' ')[0];
+      this.nombrePrograma = matricula.programa.nombre;
+      this.estadoMatricula = matricula.estadoDePago;
     })
   }
 

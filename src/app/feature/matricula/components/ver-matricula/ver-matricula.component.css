@@ -5,3 +5,47 @@
     height: 400px;
     background-color: #FFFFFF;
 }
+
+.detalles {
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label-text {
+    margin: 0;
+    font-size: x-small;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo {
+    height: 72px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.boton {
+    font-size: small;
+}
+
+.estado {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding-left: 4px;
+    padding-bottom: 3px;
+}
+
+.total-pagar{
+    border-bottom: 3px solid #00A15B
+}
