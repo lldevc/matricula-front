@@ -21,7 +21,7 @@ const routes: Routes = [
         component: VerMatriculaComponent
       },
       {
-        path: 'pagar-matricula',
+        path: 'pagar-matricula/:id',
         component: PagarMatriculaComponent
       },
       {
@@ -29,6 +29,10 @@ const routes: Routes = [
         component: ConsultarMatriculaComponent
       }
     ]
+  },
+  {
+    path: "**",
+    redirectTo: "home"
   }
 ];
 

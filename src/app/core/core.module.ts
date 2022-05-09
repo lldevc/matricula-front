@@ -9,14 +9,25 @@ import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { DialogPagarComponent } from './components/dialog-pagar/dialog-pagar.component'
+import { MatriculaModule } from '../feature/matricula/matricula.module';
+import { DialogConsultarComponent } from './components/dialog-consultar/dialog-consultar.component';
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent],
+  declarations: [NavbarComponent, FooterComponent, DialogComponent, DialogPagarComponent, DialogConsultarComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatriculaModule
   ],
-  exports: [ NavbarComponent, FooterComponent],
+  exports: [NavbarComponent, FooterComponent],
   providers: [
     HttpService,
     SecurityGuard,

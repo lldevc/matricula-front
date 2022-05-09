@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Componentes
 import { MatricularComponent } from './components/matricular/matricular.component';
@@ -20,7 +21,6 @@ import { PagarMatriculaComponent } from './components/pagar-matricula/pagar-matr
 import { ConsultarMatriculaComponent } from './components/consultar-matricula/consultar-matricula.component';
 import { MatriculaRoutingModule } from './matricula-routing.module';
 import { MatriculaComponent } from './components/matricula/matricula.component';
-import { DataService } from './shared/service/data.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { DataService } from './shared/service/data.service';
     MatSelectModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   exports: [
     MatricularComponent,
@@ -58,8 +59,9 @@ import { DataService } from './shared/service/data.service';
     MatSelectModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
-  providers: [MatriculaService, DataService]
+  providers: [MatriculaService]
 })
 export class MatriculaModule { }

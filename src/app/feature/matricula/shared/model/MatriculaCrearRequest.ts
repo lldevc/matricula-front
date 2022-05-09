@@ -5,7 +5,7 @@ export interface MatriculaCrearRequest {
     usuarioMatricula: RequestUsuarioMatricula;
 }
 
-interface RequestUsuarioMatricula {
+export interface RequestUsuarioMatricula {
     numeroIdentificacion: number;
     nombre: string;
     email: string;

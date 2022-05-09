@@ -5,20 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Programa } from 'src/app/feature/programa/shared/model/programa';
 import { ProgramaService } from '../../../programa/shared/service/programa.service';
 import { MatriculaService } from '../../shared/service/matricula.service';
-import { MatriculaCrearRequest } from '../../shared/model/MatriculaCrearRequest';
+import { MatriculaCrearRequest, RequestUsuarioMatricula } from '../../shared/model/MatriculaCrearRequest';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { DataService } from '../../shared/service/data.service';
 
-
-interface Usuario {
-  numeroIdentificacion: number;
-  nombre: string;
-  email: string;
-  ciudad: string;
-  direccion: string;
-}
 
 @Component({
   selector: 'app-matricular',
@@ -36,7 +27,7 @@ export class MatricularComponent implements OnInit {
   constructor(
     private fb: FormBuilder, protected programaService: ProgramaService,
     protected matriculaService: MatriculaService, private _snackBar: MatSnackBar, 
-    private dataService: DataService, private router: Router
+    private router: Router
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -60,7 +51,7 @@ export class MatricularComponent implements OnInit {
     const programs = await this.listaProgramas.toPromise();
     const program = programs.find(program => program.id === this.form.value.programaId)
 
-    const usuarioMatricula: Usuario = {
+    const usuarioMatricula: RequestUsuarioMatricula = {
       numeroIdentificacion: this.form.value.numeroIdentificacion,
       nombre: this.form.value.nombre,
       email: this.form.value.email,
@@ -75,14 +66,12 @@ export class MatricularComponent implements OnInit {
 
     this.matriculaService.guardar(matriculaCrearRequest).subscribe(valor =>{
       this.loading = true;
-      this.dataService.idMatricula$.emit(valor.valor)
       console.log('id -> ', valor);
       this.form.reset();
       this.router.navigate(['matricula/ver-matricula', valor.valor]);
     }, (err: HttpErrorResponse) => {
       this.hayError = true;
       console.error(err);
-      console.log(err.error);
       this._snackBar.open(err.error.mensaje, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',

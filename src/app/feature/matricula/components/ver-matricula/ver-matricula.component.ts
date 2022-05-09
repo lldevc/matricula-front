@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatriculaService } from '../../shared/service/matricula.service';
 
 
@@ -13,7 +13,7 @@ export class VerMatriculaComponent implements OnInit {
   formateador = new Intl.NumberFormat("en", { style: "currency", "currency": "USD" });
 
   valorMatricula;
-  myParam: string;
+  idUrl: string;
   nombreUsuario: string = 'Empty';
   identificacion: number = null;
   fechaSinRecargo: string;
@@ -21,13 +21,16 @@ export class VerMatriculaComponent implements OnInit {
   nombrePrograma: string = 'Empty';
   estadoMatricula: string = 'Empty';
 
-  constructor(private route: ActivatedRoute, private matriculaService: MatriculaService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private matriculaService: MatriculaService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => this.myParam = params['id']);
-    console.log(this.myParam);
-    this.matriculaService.consultarPorId(this.myParam).subscribe(matricula => {
-      console.log(matricula);
+    this.route.params.subscribe((params) => this.idUrl = params['id']);
+    console.log(this.idUrl);
+    this.matriculaService.consultarPorId(this.idUrl).subscribe(matricula => {
       this.valorMatricula = this.formateador.format(matricula.valor);
       this.nombreUsuario = matricula.usuarioMatricula.nombre;
       this.identificacion = matricula.usuarioMatricula.numeroIdentificacion;
@@ -36,6 +39,10 @@ export class VerMatriculaComponent implements OnInit {
       this.nombrePrograma = matricula.programa.nombre;
       this.estadoMatricula = matricula.estadoDePago;
     })
+  }
+
+  pagar(){
+    this.router.navigate(['matricula/pagar-matricula', this.idUrl]);
   }
 
 }
