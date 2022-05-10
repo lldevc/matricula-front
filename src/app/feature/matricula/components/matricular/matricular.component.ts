@@ -66,7 +66,6 @@ export class MatricularComponent implements OnInit {
 
     this.matriculaService.guardar(matriculaCrearRequest).subscribe(valor =>{
       this.loading = true;
-      console.log('id -> ', valor);
       this.form.reset();
       this.router.navigate(['matricula/ver-matricula', valor.valor]);
     }, (err: HttpErrorResponse) => {

@@ -15,7 +15,8 @@
     width: auto;
 }
 
-a:hover { 
+.navigate:hover { 
     color: #5384FF; 
-    text-decoration: underline 
+    text-decoration: underline;
+    cursor: pointer;
 }

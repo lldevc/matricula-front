@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatriculaService } from '../../shared/service/matricula.service';
 import { MatriculaPagarRequest, MedioDePago } from '../../shared/model/MatriculaPagarRequest';
 import { Matricula } from '../../shared/model/Matricula';
@@ -26,7 +26,8 @@ export class PagarMatriculaComponent implements OnInit {
     private route: ActivatedRoute, 
     private matriculaService: MatriculaService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
@@ -35,6 +36,14 @@ export class PagarMatriculaComponent implements OnInit {
         this.matricula = matricula;
         this.ref = matricula.id;
         this.valor = this.formateador.format(matricula.valor);
+      },(err: HttpErrorResponse) => {
+        console.error(err);
+        this._snackBar.open('Matricula no encontrada!!', '', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 6000
+        });
+        this.router.navigate(['home']);
       });
 
     });
@@ -64,7 +73,6 @@ export class PagarMatriculaComponent implements OnInit {
       fechaMaximaPago: this.matricula.fechaMaximaPago,
       medioDePago: medioDePago
     };
-    console.log(matriculaPagarRequest);
     this.matriculaService.pagar(matriculaPagarRequest).subscribe(resp =>{
       console.log(resp);
       this.openDialog()

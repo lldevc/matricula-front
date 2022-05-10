@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatriculaService } from '../../shared/service/matricula.service';
 
@@ -24,12 +26,12 @@ export class VerMatriculaComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private matriculaService: MatriculaService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => this.idUrl = params['id']);
-    console.log(this.idUrl);
     this.matriculaService.consultarPorId(this.idUrl).subscribe(matricula => {
       this.valorMatricula = this.formateador.format(matricula.valor);
       this.nombreUsuario = matricula.usuarioMatricula.nombre;
@@ -38,6 +40,14 @@ export class VerMatriculaComponent implements OnInit {
       this.fechaLimite = matricula.fechaMaximaPago.toLocaleString().split(' ')[0];
       this.nombrePrograma = matricula.programa.nombre;
       this.estadoMatricula = matricula.estadoDePago;
+    }, (err: HttpErrorResponse) => {
+      console.error(err);
+      this._snackBar.open('Matricula no encontrada!!', '', {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        duration: 6000
+      });
+      this.router.navigate(['home']);
     })
   }
 

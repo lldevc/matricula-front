@@ -34,7 +34,6 @@ export class DialogEditarEstudianteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data)
   }
 
   onNoClick(): void {
@@ -50,7 +49,6 @@ export class DialogEditarEstudianteComponent implements OnInit {
       this.form.value.ciudad,
       this.form.value.direccion
     );
-    console.log(usuario);
 
     this.usuariroMatriuclaService.actualizarDatos(usuario).subscribe(resp => {
       console.log(resp);

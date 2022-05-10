@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatriculaService } from '../../../matricula/shared/service/matricula.service';
 import { DialogEditarEstudianteComponent } from '../../../../core/components/dialog-editar-estudiante/dialog-editar-estudiante.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-perfil',
@@ -20,16 +22,23 @@ export class PerfilComponent implements OnInit {
   nombrePrograma;
   listaMatriculas;
 
+  suscripcion: Subscription;
+
   constructor(
     private matriculaService: MatriculaService,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+    this.getData()
+  }
+
+  getData() {
     this.route.params.subscribe(({ id }) => {
       this.matriculaService.consultarPorIdentificacionDeUsuario(id).subscribe(matriculas => {
-        console.log(matriculas)
         if (matriculas.length > 0) {
           this.listaMatriculas = matriculas;
           this.id = matriculas[0].usuarioMatricula.id;
@@ -39,13 +48,18 @@ export class PerfilComponent implements OnInit {
           this.ciudad = matriculas[0].usuarioMatricula.ciudad;
           this.direccion = matriculas[0].usuarioMatricula.direccion;
           this.nombrePrograma = matriculas[0].programa.nombre;
+        } else {
+            this._snackBar.open(`Al usuario con numero de identificacion ${id}, no cuenta con ninguna matricula en el sistema`, '', {
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+              duration: 6000
+            });
+            this.router.navigate(['home']);
+          
         }
       });
-
     });
-
   }
-
 
   openDialogEditarEstudiante(): void {
     const dialogRef = this.dialog.open(DialogEditarEstudianteComponent,{
