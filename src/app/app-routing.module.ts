@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'home', component: MatricularComponent, canActivate: [SecurityGuard]  },
   { path: 'matricula', loadChildren: () => import('./feature/matricula/matricula.module').then(mod => mod.MatriculaModule) },
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
-  { path: 'usuario', component: PerfilComponent}
+  { path: 'usuario/:id', component: PerfilComponent}
   
 ];
 

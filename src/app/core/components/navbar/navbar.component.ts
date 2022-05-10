@@ -3,6 +3,7 @@ import { MenuItem } from '@core/modelo/menu-item';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogPagarComponent } from '../dialog-pagar/dialog-pagar.component';
 import { DialogConsultarComponent } from '../dialog-consultar/dialog-consultar.component';
+import { DialogEstudianteComponent } from '../dialog-estudiante/dialog-estudiante.component';
 
 @Component({
   selector: 'app-navbar',
@@ -32,6 +33,14 @@ export class NavbarComponent implements OnInit {
 
   openDialogConsultar(): void {
     const dialogRef = this.dialog.open(DialogConsultarComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogEstudiante(): void {
+    const dialogRef = this.dialog.open(DialogEstudianteComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

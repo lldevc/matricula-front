@@ -15,6 +15,10 @@ export class MatriculaService {
     return this.http.doGet<Matricula>(`/inscripcion-ms/matriculas/${id}`, this.http.optsName('listar matricula por id'));
   }
 
+  public consultarPorIdentificacionDeUsuario(id: string) {
+    return this.http.doGet<Matricula[]>(`/inscripcion-ms/matriculas/usuarios/numero-identificacion/${id}`, this.http.optsName('listar matricula por identificacion de usuario'));
+  }
+
   public guardar(matricularCrearRequest: MatriculaCrearRequest) {
     return this.http.doPost<MatriculaCrearRequest, MatriculaCrearResponse>('/inscripcion-ms/matriculas', matricularCrearRequest,
       this.http.optsName('crear/actualizar matricula'));

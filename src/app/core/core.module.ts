@@ -17,9 +17,10 @@ import { DialogPagarComponent } from './components/dialog-pagar/dialog-pagar.com
 import { MatriculaModule } from '../feature/matricula/matricula.module';
 import { DialogConsultarComponent } from './components/dialog-consultar/dialog-consultar.component';
 import { DialogEstudianteComponent } from './components/dialog-estudiante/dialog-estudiante.component';
+import { DialogEditarEstudianteComponent } from './components/dialog-editar-estudiante/dialog-editar-estudiante.component';
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, DialogComponent, DialogPagarComponent, DialogConsultarComponent, DialogEstudianteComponent],
+  declarations: [NavbarComponent, FooterComponent, DialogComponent, DialogPagarComponent, DialogConsultarComponent, DialogEstudianteComponent, DialogEditarEstudianteComponent],
   imports: [
     CommonModule,
     RouterModule,

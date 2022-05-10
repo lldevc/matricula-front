@@ -1,9 +1,5 @@
 import { Component} from '@angular/core';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-dialog',
