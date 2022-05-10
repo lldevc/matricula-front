@@ -15,6 +15,7 @@ import { ProgramaModule } from './feature/programa/programa.module';
 import { HomeComponent } from '@home/home.component';
 import { AppComponent } from './app.component';
 import { PerfilComponent } from './feature/usuarioMatricula/components/perfil/perfil.component';
+import { UsuarioMatriculaService } from './feature/usuarioMatricula/shared/usuarioMatricula.service';
 
 
 
@@ -35,7 +36,7 @@ import { PerfilComponent } from './feature/usuarioMatricula/components/perfil/pe
     MatriculaModule,
     ProgramaModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, UsuarioMatriculaService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

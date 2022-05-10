@@ -5,11 +5,11 @@ import { UsuarioMatricula } from './model/usuarioMatricula';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class UsuarioMatriculaService {
 
   constructor(protected httpClient: HttpClient) { }
 
-  public consultarPorId(id: string) {
-    return this.httpClient.get<UsuarioMatricula>(`/inscripcion-ms/matriculas/${id}`);
+  public actualizarDatos(usuairio: UsuarioMatricula) {
+    return this.httpClient.put<UsuarioMatricula>(`/inscripcion-ms/usuarios-matricula/${usuairio.id}`, usuairio);
   }
 }

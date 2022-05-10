@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PerfilComponent implements OnInit {
 
+  id;
   nombre;
   identificacion;
   email;
@@ -31,7 +32,7 @@ export class PerfilComponent implements OnInit {
         console.log(matriculas)
         if (matriculas.length > 0) {
           this.listaMatriculas = matriculas;
-          console.log(this.listaMatriculas)
+          this.id = matriculas[0].usuarioMatricula.id;
           this.nombre = matriculas[0].usuarioMatricula.nombre;
           this.identificacion = matriculas[0].usuarioMatricula.numeroIdentificacion;
           this.email = matriculas[0].usuarioMatricula.email;
@@ -48,7 +49,7 @@ export class PerfilComponent implements OnInit {
 
   openDialogEditarEstudiante(): void {
     const dialogRef = this.dialog.open(DialogEditarEstudianteComponent,{
-      data: {nombre: this.nombre, email: this.email, ciudad: this.ciudad, direccion: this.direccion}
+      data: {id: this.id, numeroIdentificacion: this.identificacion, nombre: this.nombre, email: this.email, ciudad: this.ciudad, direccion: this.direccion}
     });
 
     dialogRef.afterClosed().subscribe(result => {
