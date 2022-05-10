@@ -16,9 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { DialogPagarComponent } from './components/dialog-pagar/dialog-pagar.component'
 import { MatriculaModule } from '../feature/matricula/matricula.module';
 import { DialogConsultarComponent } from './components/dialog-consultar/dialog-consultar.component';
+import { DialogEstudianteComponent } from './components/dialog-estudiante/dialog-estudiante.component';
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, DialogComponent, DialogPagarComponent, DialogConsultarComponent],
+  declarations: [NavbarComponent, FooterComponent, DialogComponent, DialogPagarComponent, DialogConsultarComponent, DialogEstudianteComponent],
   imports: [
     CommonModule,
     RouterModule,

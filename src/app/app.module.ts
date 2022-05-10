@@ -14,6 +14,7 @@ import { ProgramaModule } from './feature/programa/programa.module';
 // Componentes
 import { HomeComponent } from '@home/home.component';
 import { AppComponent } from './app.component';
+import { PerfilComponent } from './feature/usuarioMatricula/components/perfil/perfil.component';
 
 
 
@@ -22,7 +23,8 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
