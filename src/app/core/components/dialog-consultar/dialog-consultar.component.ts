@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-consultar',
-  templateUrl: './dialog-consultar.component.html',
-  styleUrls: ['./dialog-consultar.component.css']
+  templateUrl: './dialog-consultar.component.html'
 })
-export class DialogConsultarComponent implements OnInit {
+export class DialogConsultarComponent  {
 
   public form: FormGroup;
 
@@ -20,11 +19,12 @@ export class DialogConsultarComponent implements OnInit {
       })
     }
 
-  ngOnInit(): void {
-  }
-
+  
   buscar(){
-    this.router.navigate(['matricula/ver-matricula', this.form.value.id]);
+    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['matricula/ver-matricula', this.form.value.id]);
+      }); 
+
   }
 
 }

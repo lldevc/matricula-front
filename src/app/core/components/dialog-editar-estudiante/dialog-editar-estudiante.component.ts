@@ -52,7 +52,10 @@ export class DialogEditarEstudianteComponent implements OnInit {
 
     this.usuariroMatriuclaService.actualizarDatos(usuario).subscribe(resp => {
       console.log(resp);
-      this.router.navigate(['usuario', this.data.numeroIdentificacion]);
+      this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['usuario', this.data.numeroIdentificacion]);
+        });
+      
     }, (err: HttpErrorResponse) => {
       console.error(err);
       this._snackBar.open(err.error.mensaje, '', {

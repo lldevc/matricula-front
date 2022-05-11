@@ -26,7 +26,11 @@ export class DialogPagarComponent implements OnInit {
   }
 
   pagar(){
-    this.router.navigate(['matricula/pagar-matricula', this.form.value.id]);
+    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['matricula/pagar-matricula', this.form.value.id]);
+      });
+    
+    
   }
 
 }
