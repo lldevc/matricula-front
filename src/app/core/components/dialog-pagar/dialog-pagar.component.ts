@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-pagar',
-  templateUrl: './dialog-pagar.component.html',
-  styleUrls: ['./dialog-pagar.component.css']
+  templateUrl: './dialog-pagar.component.html'
 })
 export class DialogPagarComponent implements OnInit {
 

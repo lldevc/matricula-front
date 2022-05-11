@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { MatricularComponent } from './components/matricular/matricular.component';
 import { VerMatriculaComponent } from './components/ver-matricula/ver-matricula.component';
 import { PagarMatriculaComponent } from './components/pagar-matricula/pagar-matricula.component';
-import { ConsultarMatriculaComponent } from './components/consultar-matricula/consultar-matricula.component';
 import { MatriculaComponent } from './components/matricula/matricula.component';
 
 
@@ -24,10 +23,6 @@ const routes: Routes = [
         path: 'pagar-matricula/:id',
         component: PagarMatriculaComponent
       },
-      {
-        path: 'consular-matricula',
-        component: ConsultarMatriculaComponent
-      }
     ]
   },
   {

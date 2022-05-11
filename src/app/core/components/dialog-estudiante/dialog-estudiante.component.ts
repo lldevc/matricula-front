@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-estudiante',
-  templateUrl: './dialog-estudiante.component.html',
-  styleUrls: ['./dialog-estudiante.component.css']
+  templateUrl: './dialog-estudiante.component.html'
 })
 export class DialogEstudianteComponent implements OnInit {
 

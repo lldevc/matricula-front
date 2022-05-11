@@ -10,8 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-dialog-editar-estudiante',
-  templateUrl: './dialog-editar-estudiante.component.html',
-  styleUrls: ['./dialog-editar-estudiante.component.css']
+  templateUrl: './dialog-editar-estudiante.component.html'
 })
 export class DialogEditarEstudianteComponent implements OnInit {
 
