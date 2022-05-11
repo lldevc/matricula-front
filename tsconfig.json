@@ -35,6 +35,9 @@
       ],
       "@shared/*": [
         "src/app/shared/*"
+      ],
+      "@programa/*": [
+        "src/app/feature/programa/*"
       ]
     }
   },
