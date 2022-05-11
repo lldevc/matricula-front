@@ -1,6 +1,12 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PagarMatriculaComponent } from './pagar-matricula.component';
+import { MatriculaService } from 'src/app/feature/matricula/shared/service/matricula.service';
+import { HttpService } from '@core/services/http.service';
 
 describe('PagarMatriculaComponent', () => {
   let component: PagarMatriculaComponent;
@@ -8,7 +14,14 @@ describe('PagarMatriculaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PagarMatriculaComponent ]
+      declarations: [ PagarMatriculaComponent ],
+      imports:[
+        HttpClientModule,
+        RouterTestingModule,
+        MatDialogModule,
+        MatSnackBarModule
+      ],
+      providers: [MatriculaService, HttpService]
     })
     .compileComponents();
   });

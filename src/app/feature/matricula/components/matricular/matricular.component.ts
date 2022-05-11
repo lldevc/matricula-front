@@ -35,7 +35,7 @@ export class MatricularComponent implements OnInit {
       email: ['', Validators.required],
       ciudad: ['', Validators.required],
       direccion: ['', Validators.required],
-      programaId: [, Validators.required]
+      programaId: ['', Validators.required]
     })
   }
 

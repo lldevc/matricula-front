@@ -31,7 +31,7 @@
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Idioma de interes</mat-label>
-                <mat-select formControlName="programaId">
+                <mat-select ngDefaultControl formControlName="programaId">
                     <mat-option *ngFor="let item of listaProgramas | async" [value]=item.id>{{ item.nombre }}</mat-option>
                 </mat-select>
             </mat-form-field>
