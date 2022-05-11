@@ -24,8 +24,8 @@ export class DialogEstudianteComponent implements OnInit {
   }
 
   buscar(){
-    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['usuario', this.form.value.id]);
+    this.router.navigateByUrl('/usuario', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['usuario/perfil', this.form.value.id]);
       });
     
   }

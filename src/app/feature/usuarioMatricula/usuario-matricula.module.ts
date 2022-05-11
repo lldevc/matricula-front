@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { UsuarioMatriculaService } from './shared/usuarioMatricula.service';
+import { UsuarioMatriculaRoutingModule } from './usuario-matricula-routing.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { UsuarioMatriculaService } from './shared/usuarioMatricula.service';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    UsuarioMatriculaRoutingModule
   ],
   exports:[
     PerfilComponent

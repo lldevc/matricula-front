@@ -21,7 +21,7 @@ export class DialogConsultarComponent  {
 
   
   buscar(){
-    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/matricula', { skipLocationChange: true }).then(() => {
       this.router.navigate(['matricula/ver-matricula', this.form.value.id]);
       }); 
 

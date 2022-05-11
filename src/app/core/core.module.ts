@@ -33,7 +33,15 @@ import { DialogEditarEstudianteComponent } from '@core/components/dialog-editar-
     RouterModule,
     SharedModule
   ],
-  exports: [NavbarComponent, FooterComponent],
+  exports: [
+    NavbarComponent, 
+    FooterComponent,
+    DialogComponent, 
+    DialogPagarComponent, 
+    DialogConsultarComponent, 
+    DialogEstudianteComponent, 
+    DialogEditarEstudianteComponent
+  ],
   providers: [
     HttpService,
     SecurityGuard,
