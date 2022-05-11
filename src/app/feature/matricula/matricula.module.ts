@@ -1,28 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { MatriculaRoutingModule } from './matricula-routing.module';
 import { ProgramaModule } from './../programa/programa.module';
-
-// Angular material
-import { MatSliderModule } from '@angular/material/slider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatDialogModule } from '@angular/material/dialog';
 
 // Componentes
 import { MatricularComponent } from './components/matricular/matricular.component';
-import { MatriculaService } from './shared/service/matricula.service';
 import { VerMatriculaComponent } from './components/ver-matricula/ver-matricula.component';
 import { PagarMatriculaComponent } from './components/pagar-matricula/pagar-matricula.component';
 import { ConsultarMatriculaComponent } from './components/consultar-matricula/consultar-matricula.component';
-import { MatriculaRoutingModule } from './matricula-routing.module';
 import { MatriculaComponent } from './components/matricula/matricula.component';
+
+// Service
+import { MatriculaService } from './shared/service/matricula.service';
 
 @NgModule({
   declarations: [
@@ -37,14 +28,7 @@ import { MatriculaComponent } from './components/matricula/matricula.component';
     CommonModule,
     ProgramaModule,
     ReactiveFormsModule,
-    MatSliderModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatDialogModule
+    SharedModule 
   ],
   exports: [
     MatricularComponent,
@@ -53,16 +37,8 @@ import { MatriculaComponent } from './components/matricula/matricula.component';
     ConsultarMatriculaComponent,
     MatriculaComponent,
     CommonModule,
-    ProgramaModule,
     ReactiveFormsModule,
-    MatSliderModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatDialogModule
+    ProgramaModule,
   ],
   providers: [MatriculaService]
 })
