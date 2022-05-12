@@ -4,7 +4,6 @@ import { MatriculaService } from '../../../matricula/shared/service/matricula.se
 import { DialogEditarEstudianteComponent } from '../../../../core/components/dialog-editar-estudiante/dialog-editar-estudiante.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-perfil',
@@ -22,7 +21,7 @@ export class PerfilComponent implements OnInit {
   nombrePrograma;
   listaMatriculas;
 
-  suscripcion: Subscription;
+  idUrl: string;
 
   constructor(
     private matriculaService: MatriculaService,
@@ -33,12 +32,9 @@ export class PerfilComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getData()
-  }
-
-  getData() {
     this.route.params.subscribe(({ id }) => {
-      this.matriculaService.consultarPorIdentificacionDeUsuario(id).subscribe(matriculas => {
+      this.idUrl = id;
+      this.matriculaService.consultarPorIdentificacionDeUsuario(this.idUrl).subscribe(matriculas => {
         if (matriculas.length > 0) {
           this.listaMatriculas = matriculas;
           this.id = matriculas[0].usuarioMatricula.id;
