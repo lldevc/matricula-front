@@ -7,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { PagarMatriculaComponent } from './pagar-matricula.component';
 import { MatriculaService } from 'src/app/feature/matricula/shared/service/matricula.service';
 import { HttpService } from '@core/services/http.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PagarMatriculaComponent', () => {
   let component: PagarMatriculaComponent;
@@ -19,7 +20,8 @@ describe('PagarMatriculaComponent', () => {
         HttpClientModule,
         RouterTestingModule,
         MatDialogModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        BrowserAnimationsModule
       ],
       providers: [MatriculaService, HttpService]
     })

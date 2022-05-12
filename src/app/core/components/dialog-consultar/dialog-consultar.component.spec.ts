@@ -1,23 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { Location } from '@angular/common';
+import { By } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router, Routes } from '@angular/router';
+
 import { DialogConsultarComponent } from './dialog-consultar.component';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DialogConsultarComponent', () => {
   let component: DialogConsultarComponent;
   let fixture: ComponentFixture<DialogConsultarComponent>;
 
+  let location: Location
+  let router: Router
+
+  const routes = [
+    {path: 'matricula/ver-matricula/:id', component: {}}
+  ] as Routes;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DialogConsultarComponent ],
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes(routes),
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        NoopAnimationsModule 
       ]
     })
     .compileComponents();
@@ -25,6 +35,9 @@ describe('DialogConsultarComponent', () => {
   });
 
   beforeEach(() => {
+    router = TestBed.inject(Router);
+    location = TestBed.inject(Location);
+
     fixture = TestBed.createComponent(DialogConsultarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -47,5 +60,21 @@ describe('DialogConsultarComponent', () => {
     id.setValue('1000');
     expect(form.valid).toBeTrue();
   })
+
+  it('deberia navegar a ver-matricula', fakeAsync(() => {
+    router.initialNavigation();
+    const form = component.form
+    const id = form.controls['id'];
+    id.setValue('1000');
+
+    let btn = fixture.debugElement.query(By.css('button'));
+    btn.nativeElement.click();
+    router.navigate(['/matricula/ver-matricula/1000']);
+
+    tick();
+
+    expect(router.url).toBe('/matricula/ver-matricula/1000')
+    expect(location.path()).toBe('/matricula/ver-matricula/1000');
+  }));
 
 });

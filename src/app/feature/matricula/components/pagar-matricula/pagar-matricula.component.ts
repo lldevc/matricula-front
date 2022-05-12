@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatriculaService } from '../../shared/service/matricula.service';
 import { MatriculaPagarRequest, MedioDePago } from '../../shared/model/MatriculaPagarRequest';
 import { Matricula } from '../../shared/model/Matricula';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../../core/components/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
