@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Modulos Feature
 import { MatriculaModule } from './feature/matricula/matricula.module';
 import { UsuarioMatriculaModule } from './feature/usuarioMatricula/usuario-matricula.module';
-// import { ProgramaModule } from './feature/programa/programa.module';
 
 
 // Componentes
@@ -31,7 +30,6 @@ import { AppComponent } from './app.component';
     CoreModule,
     BrowserAnimationsModule,
     MatriculaModule,
-    // ProgramaModule,
     UsuarioMatriculaModule,
   ],
   providers: [CookieService],

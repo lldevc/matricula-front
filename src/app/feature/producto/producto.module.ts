@@ -7,6 +7,7 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ProductoComponent } from './components/producto/producto.component';
 import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { ProductoService } from './shared/service/producto.service';
   ],
   imports: [
     ProductoRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
   ],
   providers: [ProductoService]
 })

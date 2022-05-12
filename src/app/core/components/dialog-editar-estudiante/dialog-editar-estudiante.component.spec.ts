@@ -45,4 +45,49 @@ describe('DialogEditarEstudianteComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Deberia validar que el formulario es invalido sin un nombre', () => {
+    const form = component.form
+    form.controls['nombre'].setValue('');
+    form.controls['email'].setValue('test@test.com');
+    form.controls['ciudad'].setValue('Test');
+    form.controls['direccion'].setValue('Test');
+    expect(form.invalid).toBeTrue();
+  })
+
+  it('Deberia validar que el formulario es invalido sin email', () => {
+    const form = component.form
+    form.controls['nombre'].setValue('test');
+    form.controls['email'].setValue('');
+    form.controls['ciudad'].setValue('test');
+    form.controls['direccion'].setValue('test');
+    expect(form.invalid).toBeTrue();
+  })
+
+  it('Deberia validar que el formulario es invalido sin ciudad', () => {
+    const form = component.form
+    form.controls['nombre'].setValue('test');
+    form.controls['email'].setValue('test@test.com');
+    form.controls['ciudad'].setValue('');
+    form.controls['direccion'].setValue('test');
+    expect(form.invalid).toBeTrue();
+  })
+
+  it('Deberia validar que el formulario es invalido sin direccion', () => {
+    const form = component.form
+    form.controls['nombre'].setValue('test');
+    form.controls['email'].setValue('test@test.com');
+    form.controls['ciudad'].setValue('test');
+    form.controls['direccion'].setValue('');
+    expect(form.invalid).toBeTrue();
+  })
+
+  it('Deberia validar que el formulario es valido', () => {
+    const form = component.form
+    form.controls['nombre'].setValue('test');
+    form.controls['email'].setValue('test@test.com');
+    form.controls['ciudad'].setValue('test');
+    form.controls['direccion'].setValue('test');
+    expect(form.valid).toBeTrue();
+  })
 });

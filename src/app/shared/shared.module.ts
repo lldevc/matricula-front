@@ -7,6 +7,7 @@ import { MensajeErrorCamposContenedorDirective } from './directivas/error-campos
 import { ErrorCamposPlantillaComponent } from './directivas/error-campos/componente/error-campos-plantilla.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TrackByPipe } from './pipe/track-by.pipe';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // Angular material
 import { MatDialogModule } from '@angular/material/dialog';
@@ -30,6 +31,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     TrackByPipe
   ],
   imports: [
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,

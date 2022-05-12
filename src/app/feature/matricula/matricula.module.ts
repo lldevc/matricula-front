@@ -13,6 +13,7 @@ import { MatriculaComponent } from './components/matricula/matricula.component';
 
 // Service
 import { MatriculaService } from './shared/service/matricula.service';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { MatriculaService } from './shared/service/matricula.service';
     CommonModule,
     ProgramaModule,
     ReactiveFormsModule,
-    SharedModule 
+    SharedModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule  
   ],
   exports: [
     MatricularComponent,
