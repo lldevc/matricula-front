@@ -8,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/materia
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { UsuarioMatricula } from '../../../feature/usuarioMatricula/shared/model/usuarioMatricula';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DialogEditarEstudianteComponent', () => {
   let component: DialogEditarEstudianteComponent;
@@ -29,7 +30,8 @@ describe('DialogEditarEstudianteComponent', () => {
         ReactiveFormsModule,
         MatSnackBarModule,
         MatDialogModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        BrowserAnimationsModule
       ],
       providers: [
         UsuarioMatriculaService,

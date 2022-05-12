@@ -5,6 +5,7 @@ import {
 import { BorrarProductoComponent } from './borrar-producto.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarProductoComponent;
@@ -16,7 +17,8 @@ describe('BorrarProductoComponent', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        BrowserAnimationsModule
       ],
     })
     .compileComponents();

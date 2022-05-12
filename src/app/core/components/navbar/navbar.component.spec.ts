@@ -2,6 +2,7 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -11,7 +12,8 @@ describe('NavbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ NavbarComponent ],
       imports: [
-        MatDialogModule
+        MatDialogModule,
+        BrowserAnimationsModule
       ]
     })
     .compileComponents();

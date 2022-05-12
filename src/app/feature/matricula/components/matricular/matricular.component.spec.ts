@@ -8,6 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgramaService } from '@programa/shared/service/programa.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('MatricularComponent', () => {
   let component: MatricularComponent;
@@ -21,7 +22,8 @@ describe('MatricularComponent', () => {
         RouterTestingModule,
         FormsModule,
         ReactiveFormsModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        BrowserAnimationsModule
       ],
       providers: [MatriculaService, ProgramaService, HttpService]
     })

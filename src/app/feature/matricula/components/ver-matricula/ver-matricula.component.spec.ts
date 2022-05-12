@@ -7,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { VerMatriculaComponent } from './ver-matricula.component';
 import { HttpService } from '@core/services/http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('VerMatriculaComponent', () => {
   let component: VerMatriculaComponent;
@@ -18,7 +19,8 @@ describe('VerMatriculaComponent', () => {
       imports:[
         HttpClientModule,
         RouterTestingModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        BrowserAnimationsModule
       ],
       providers: [MatriculaService, HttpService]
     })

@@ -8,6 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ProductoService } from '../../shared/service/producto.service';
 import { Producto } from '../../shared/model/producto';
 import { HttpService } from 'src/app/core/services/http.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ListarProductoComponent', () => {
   let component: ListarProductoComponent;
@@ -21,7 +22,8 @@ describe('ListarProductoComponent', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        BrowserAnimationsModule
       ],
       providers: [ProductoService, HttpService]
     })
