@@ -6,18 +6,22 @@ import { DialogEditarEstudianteComponent } from './dialog-editar-estudiante.comp
 import { UsuarioMatriculaService } from 'src/app/feature/usuarioMatricula/shared/usuarioMatricula.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { UsuarioMatricula } from '../../../feature/usuarioMatricula/shared/model/usuarioMatricula';
 
 describe('DialogEditarEstudianteComponent', () => {
   let component: DialogEditarEstudianteComponent;
   let fixture: ComponentFixture<DialogEditarEstudianteComponent>;
+
+  let service: UsuarioMatriculaService;
+  let httpMock: HttpTestingController;
 
   const mockDialogRef = {
     close: jasmine.createSpy('close')
   };
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+      await TestBed.configureTestingModule({
       declarations: [DialogEditarEstudianteComponent],
       imports: [
         RouterTestingModule,
@@ -34,6 +38,15 @@ describe('DialogEditarEstudianteComponent', () => {
       ]
     })
       .compileComponents();
+  });
+
+  beforeEach(() => {
+    const injector = TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [UsuarioMatriculaService]
+    });
+    httpMock = injector.inject(HttpTestingController);
+    service = TestBed.inject(UsuarioMatriculaService);
   });
 
   beforeEach(() => {
@@ -90,4 +103,26 @@ describe('DialogEditarEstudianteComponent', () => {
     form.controls['direccion'].setValue('test');
     expect(form.valid).toBeTrue();
   })
+
+  it('Debe crearse correctamente el servicio', () => {
+    expect(service).toBeTruthy();
+  });
+
+  it('Debe retornar null y hacer peticion al metodo PUT', () => {
+    
+    const mockUsuarioMatricula: UsuarioMatricula = {
+      id: 1,
+      numeroIdentificacion: 11,
+      nombre: 'test',
+      email: 'test@test.com',
+      ciudad: 'test',
+      direccion: 'test'
+    }
+
+    service.actualizarDatos(mockUsuarioMatricula).subscribe( (res) => {
+      expect(res).toBeNull()
+    });
+    const req = httpMock.expectOne('/inscripcion-ms/usuarios-matricula/1');
+    expect(req.request.method).toBe('PUT');
+  });
 });

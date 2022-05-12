@@ -17,7 +17,6 @@ import { DialogPagarComponent } from '@core/components/dialog-pagar/dialog-pagar
 import { DialogConsultarComponent } from '@core/components/dialog-consultar/dialog-consultar.component';
 import { DialogEstudianteComponent } from '@core/components/dialog-estudiante/dialog-estudiante.component';
 import { DialogEditarEstudianteComponent } from '@core/components/dialog-editar-estudiante/dialog-editar-estudiante.component';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,6 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     CommonModule,
     RouterModule,
     SharedModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule
   ],
   exports: [
     NavbarComponent, 
