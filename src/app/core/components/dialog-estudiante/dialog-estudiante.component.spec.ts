@@ -60,7 +60,7 @@ describe('DialogEstudianteComponent', () => {
     expect(form.valid).toBeTrue();
   })
 
-  it('deberia navegar a ver-matricula', fakeAsync(() => {
+  it('deberia navegar a perfil', fakeAsync(() => {
     router.initialNavigation();
     const form = component.form
     const id = form.controls['id'];
