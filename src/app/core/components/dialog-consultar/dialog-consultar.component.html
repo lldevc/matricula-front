@@ -1,8 +1,8 @@
-<h2 id="titulo" mat-dialog-title class="text-center">Consultar matricula</h2>
+<h2 id="titulo" mat-dialog-title class="text-center titulo-consultar">Consultar matricula</h2>
 <form [formGroup]="form" (ngSubmit)="buscar()">
     <mat-form-field class="ancho" appearance="fill">
         <mat-label>ingrese la referencia de matricula</mat-label>
-        <input matInput formControlName="id">
+        <input id="consultar-matricula" matInput formControlName="id">
     </mat-form-field>
     <mat-dialog-actions align="center">
         <button type="submit" class="ancho altura" mat-raised-button mat-dialog-close color="primary"

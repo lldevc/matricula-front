@@ -8,30 +8,30 @@
     </div>
     <div class="container-form">
         <form [formGroup]="form" (ngSubmit)="matricularme()">
-            <h1 class="resaltar-h fw-bold">Datos de matricula</h1>
+            <h1 id="titulo-form-matricular" class="resaltar-h fw-bold">Datos de matricula</h1>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Nombre completo</mat-label>
-                <input matInput formControlName="nombre">
+                <input id="input-form-matricular-nombre" matInput formControlName="nombre">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Numero de identificacion</mat-label>
-                <input type="number" matInput formControlName="numeroIdentificacion">
+                <input id="input-form-matricular-identificacion" type="number" matInput formControlName="numeroIdentificacion">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Email</mat-label>
-                <input type="email" matInput formControlName="email">
+                <input id="input-form-matricular-email" type="email" matInput formControlName="email">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Ciudad</mat-label>
-                <input matInput formControlName="ciudad">
+                <input id="input-form-matricular-ciudad" matInput formControlName="ciudad">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Direccion</mat-label>
-                <input matInput formControlName="direccion">
+                <input id="input-form-matricular-direccion" matInput formControlName="direccion">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Idioma de interes</mat-label>
-                <mat-select ngDefaultControl formControlName="programaId">
+                <mat-select id="input-form-matricular-programa" ngDefaultControl formControlName="programaId">
                     <mat-option *ngFor="let item of listaProgramas | async" [value]=item.id>{{ item.nombre }}</mat-option>
                 </mat-select>
             </mat-form-field>

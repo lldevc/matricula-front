@@ -7,15 +7,15 @@
       <img class="logo navigate" src="../../../../assets/img/logo4.png" [routerLink]="['/home']">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item navigate">
-          <a class="nav-link color-text" [routerLink]="['/home']">Inicio</a>
+          <a id="enlace-inicio" class="nav-link color-text" [routerLink]="['/home']">Inicio</a>
         </li>
         <li class="nav-item navigate">
-          <a class="nav-link color-text" (click)="openDialogPagar()">Pagos</a>
+          <a id="enlace-pagos" class="nav-link color-text" (click)="openDialogPagar()">Pagos</a>
         </li>
         <li class="nav-item navigate">
-          <a class="nav-link color-text" (click)="openDialogConsultar()">Consultar</a>
+          <a id="enlace-consultar" class="nav-link color-text" (click)="openDialogConsultar()">Consultar</a>
         </li>
       </ul>
     </div>
-    <button type="button" class="btn btn-outline-dark color-text fw-bold" (click)="openDialogEstudiante()">Estoy matriculado</button>
+    <button id="btn-matriculado" type="button" class="btn btn-outline-dark color-text fw-bold" (click)="openDialogEstudiante()">Estoy matriculado</button>
 </nav>
