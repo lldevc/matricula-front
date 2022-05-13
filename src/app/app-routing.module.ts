@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: MatricularComponent, canActivate: [SecurityGuard]  },
   { path: 'matricula', loadChildren: () => import('./feature/matricula/matricula.module').then(mod => mod.MatriculaModule) },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'usuario', loadChildren: () => import('./feature/usuarioMatricula/usuario-matricula.module').then(mod => mod.UsuarioMatriculaModule)}
   
 ];

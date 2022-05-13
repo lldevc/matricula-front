@@ -3,7 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // Modulos
 import { AppRoutingModule } from './app-routing.module';
-import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +25,6 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductoModule,
     CoreModule,
     BrowserAnimationsModule,
     MatriculaModule,

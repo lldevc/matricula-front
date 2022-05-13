@@ -1,7 +1,7 @@
 <div class="checkout_form">
     <div class="card_number" id="card-container">
         <div class="d-flex justify-content-between text-light mb-2">
-            <label for="card">ref: {{ ref }}</label>
+            <label id="referencia" for="card">ref: {{ ref }}</label>
             <label for="card">valor a pagar: {{ valor }}</label>
         </div>
         <input type="text" class="input" id="card" placeholder="0000 0000 0000 0000" (keyup)="onKeyUp($event)" maxlength="19" minlength="18" autocomplete="off">

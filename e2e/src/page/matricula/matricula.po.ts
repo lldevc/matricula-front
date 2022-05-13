@@ -50,11 +50,38 @@ export class MatriculaPage {
         await this.inputConsultarMatricula.sendKeys(id);
     }
 
-    // elementos usuario componente
-    private inputBusvarEstudiante = element(by.id('bucar-estudiante'));
+    // componente ver-matricula
+    private botonPagar = element(by.id('pagar'));
 
-    async ingresarIdentificacionEstudiante(id) {
-        await this.inputBusvarEstudiante.sendKeys(id);
+    async clickBotonIrAPagar() {
+        await this.botonPagar.click();
+    }
+
+    //componente pagar-matricula
+    private botonPagarMatricuala = element(by.id('btn-pagar'))
+    private inputNumeroTarjeta = element(by.id('card'));
+    private inputMestarjeta = element(by.id('mes'));
+    private inputAnioTarjeta = element(by.id('anio'));
+    private inputCvvTarjeta = element(by.id('cvv'));
+
+    async clickBotonPagar() {
+        await this.botonPagarMatricuala.click();
+    }
+
+    async IngresarNumeroDeTarjeta(numero) {
+        await this.inputNumeroTarjeta.sendKeys(numero);
+    }
+
+    async IngresarMesDeTarjeta(mes) {
+        await this.inputMestarjeta.sendKeys(mes);
+    }
+
+    async IngresarAnioDeTarjeta(anio) {
+        await this.inputAnioTarjeta.sendKeys(anio);
+    }
+
+    async IngresarCvvDeTarjeta(cvv) {
+        await this.inputCvvTarjeta.sendKeys(cvv);
     }
     
 }
