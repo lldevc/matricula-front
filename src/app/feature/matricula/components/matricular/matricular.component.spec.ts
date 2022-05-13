@@ -184,18 +184,31 @@ describe('MatricularComponent', () => {
 
     matriculaService.guardar(dummyMatriculaRequest).subscribe((respuesta) => {
       expect(respuesta).toEqual(dummyMatriculaRespone);
-
       let btn = fixture.debugElement.query(By.css('#matricular'));
       btn.nativeElement.click();
       router.navigate([`matricula/ver-matricula/${respuesta.valor}`]);
       tick();
       fixture.detectChanges();
+      expect(component.loading).toBeFalse();
+      expect(component.form.invalid).toBeTrue();
       expect(location.path()).toBe(`/matricula/ver-matricula/${respuesta.valor}`);
     });
     const req = httpMock.expectOne('/inscripcion-ms/matriculas');
     expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<MatriculaCrearResponse>({ body: dummyMatriculaRespone }));
-    
+
+  }));
+
+  it('Debe probar metodo matricular y navegar a ver matricula', fakeAsync(() => {
+    router.initialNavigation();
+    component.matricularme();
+    router.navigate([`matricula/ver-matricula/1000`]);
+    tick();
+    fixture.detectChanges();
+    const req = httpMock.expectOne('/inscripcion-ms/matriculas');
+    expect(req.request.method).toBe('POST');
+    expect(location.path()).toBe(`/matricula/ver-matricula/1000`);
+
   }));
 
 });

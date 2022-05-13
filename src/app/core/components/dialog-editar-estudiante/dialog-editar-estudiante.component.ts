@@ -49,14 +49,12 @@ export class DialogEditarEstudianteComponent implements OnInit {
       this.form.value.direccion
     );
 
-    this.usuariroMatriuclaService.actualizarDatos(usuario).subscribe(resp => {
-      console.log(resp);
+    this.usuariroMatriuclaService.actualizarDatos(usuario).subscribe(() => {
       this.router.navigateByUrl('/usuario', { skipLocationChange: true }).then(() => {
         this.router.navigate(['usuario/perfil', this.data.numeroIdentificacion]);
         });
       
     }, (err: HttpErrorResponse) => {
-      console.error(err);
       this._snackBar.open(err.error.mensaje, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',

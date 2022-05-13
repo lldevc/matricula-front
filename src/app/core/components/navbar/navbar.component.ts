@@ -26,25 +26,19 @@ export class NavbarComponent implements OnInit {
   openDialogPagar(): void {
     const dialogRef = this.dialog.open(DialogPagarComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
   openDialogConsultar(): void {
     const dialogRef = this.dialog.open(DialogConsultarComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
   openDialogEstudiante(): void {
     const dialogRef = this.dialog.open(DialogEstudianteComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
 }

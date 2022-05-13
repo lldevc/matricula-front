@@ -70,7 +70,6 @@ export class MatricularComponent implements OnInit {
       this.router.navigate(['matricula/ver-matricula', valor.valor]);
     }, (err: HttpErrorResponse) => {
       this.hayError = true;
-      console.error(err);
       this._snackBar.open(err.error.mensaje, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',

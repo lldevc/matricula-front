@@ -38,8 +38,7 @@ export class PagarMatriculaComponent implements OnInit {
         this.matricula = matricula;
         this.ref = matricula.id;
         this.valor = this.formateador.format(matricula.valor);
-      },(err: HttpErrorResponse) => {
-        console.error(err);
+      },() => {
         this._snackBar.open('Matricula no encontrada!!', '', {
           horizontalPosition: 'center',
           verticalPosition: 'top',
@@ -75,11 +74,9 @@ export class PagarMatriculaComponent implements OnInit {
       fechaMaximaPago: this.matricula.fechaMaximaPago,
       medioDePago: medioDePago
     };
-    this.matriculaService.pagar(matriculaPagarRequest).subscribe(resp =>{
-      console.log(resp);
+    this.matriculaService.pagar(matriculaPagarRequest).subscribe(() =>{
       this.openDialog()
     }, (err: HttpErrorResponse) => {
-      console.error(err);
       this._snackBar.open(err.error.mensaje, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
@@ -91,9 +88,7 @@ export class PagarMatriculaComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
   onKeyUp(x) {

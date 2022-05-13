@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -9,6 +9,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { UsuarioMatricula } from '../../../feature/usuarioMatricula/shared/model/usuarioMatricula';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Location } from '@angular/common';
+import { Router, Routes } from '@angular/router';
 
 describe('DialogEditarEstudianteComponent', () => {
   let component: DialogEditarEstudianteComponent;
@@ -16,6 +18,13 @@ describe('DialogEditarEstudianteComponent', () => {
 
   let service: UsuarioMatriculaService;
   let httpMock: HttpTestingController;
+
+  let location: Location
+  let router: Router
+
+  const routes = [
+    { path: 'usuario/perfil/:id', component: {} }
+  ] as Routes;
 
   const mockDialogRef = {
     close: jasmine.createSpy('close')
@@ -25,7 +34,7 @@ describe('DialogEditarEstudianteComponent', () => {
       await TestBed.configureTestingModule({
       declarations: [DialogEditarEstudianteComponent],
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes(routes),
         FormsModule,
         ReactiveFormsModule,
         MatSnackBarModule,
@@ -52,6 +61,9 @@ describe('DialogEditarEstudianteComponent', () => {
   });
 
   beforeEach(() => {
+    router = TestBed.inject(Router);
+    location = TestBed.inject(Location);
+
     fixture = TestBed.createComponent(DialogEditarEstudianteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -122,7 +134,11 @@ describe('DialogEditarEstudianteComponent', () => {
     }
 
     service.actualizarDatos(mockUsuarioMatricula).subscribe( (res) => {
-      expect(res).toBeNull()
+      expect(res).toBeNull();
+      router.navigate([`matricula/ver-matricula/1000`]);
+      tick();
+      fixture.detectChanges();
+      expect(location.path()).toBe(`/matricula/ver-matricula/1000`);
     });
     const req = httpMock.expectOne('/inscripcion-ms/usuarios-matricula/1');
     expect(req.request.method).toBe('PUT');
