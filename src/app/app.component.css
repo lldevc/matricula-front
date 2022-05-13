@@ -2,6 +2,7 @@
     flex: 1 1 100%;
     display: flex;
     flex-flow: column;
+    height: 100%;
   }
   
 .body {
@@ -9,4 +10,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 }

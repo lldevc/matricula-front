@@ -49,3 +49,30 @@
 .total-pagar{
     border-bottom: 3px solid #00A15B
 }
+
+/*Resolucion movil muy pequeños*/
+@media(max-width: 575px){
+    .ver-matricula {
+        margin: 25px 25px 35px 25px;
+        border-radius: 10px;
+        width: 95%;
+        height: 400px;
+        background-color: #FFFFFF;
+    }
+
+    .bold {
+        font-weight: bold;
+        font-size: small;
+    }
+}
+
+/*Resolucion movil pequeños*/
+@media(min-width: 576px) and (max-width: 767px){
+    .ver-matricula {
+        margin: 25px 25px 35px 25px;
+        border-radius: 10px;
+        width: 80%;
+        height: 400px;
+        background-color: #FFFFFF;
+    }
+}
