@@ -21,6 +21,7 @@ export class PagarMatriculaComponent implements OnInit {
   ref;
   valor;
   matricula: Matricula;
+  idUrl: string;
 
   constructor(
     private route: ActivatedRoute, 
@@ -32,7 +33,8 @@ export class PagarMatriculaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(({ id }) => {
-      this.matriculaService.consultarPorId(id).subscribe(matricula => {
+      this.idUrl = id;
+      this.matriculaService.consultarPorId(this.idUrl).subscribe(matricula => {
         this.matricula = matricula;
         this.ref = matricula.id;
         this.valor = this.formateador.format(matricula.valor);
