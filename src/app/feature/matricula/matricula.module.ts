@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatriculaRoutingModule } from './matricula-routing.module';
-import { ProgramaModule } from './../programa/programa.module';
+import { ProgramaModule } from '@programa/programa.module';
 
 // Componentes
 import { MatricularComponent } from './components/crear-matricula/matricular.component';

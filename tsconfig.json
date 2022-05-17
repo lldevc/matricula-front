@@ -38,6 +38,12 @@
       ],
       "@programa/*": [
         "src/app/feature/programa/*"
+      ],
+      "@matricula/*": [
+        "src/app/feature/matricula/*"
+      ],
+      "@usuario-matricula/*": [
+        "src/app/feature/usuarioMatricula/*"
       ]
     }
   },
