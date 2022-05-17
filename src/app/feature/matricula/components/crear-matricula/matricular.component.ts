@@ -20,13 +20,13 @@ export class MatricularComponent implements OnInit {
 
   public listaProgramas: Observable<Programa[]>;
   public form: FormGroup;
-  hayError: boolean = false;
-  loading: boolean = false;
+  hayError = false;
+  loading = false;
   programas: Programa[];
 
   constructor(
     private fb: FormBuilder, protected programaService: ProgramaService,
-    protected matriculaService: MatriculaService, private _snackBar: MatSnackBar, 
+    protected matriculaService: MatriculaService, private _snackBar: MatSnackBar,
     private router: Router
   ) {
     this.form = this.fb.group({
@@ -36,7 +36,7 @@ export class MatricularComponent implements OnInit {
       ciudad: ['', Validators.required],
       direccion: ['', Validators.required],
       programaId: ['', Validators.required]
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -49,7 +49,7 @@ export class MatricularComponent implements OnInit {
     this.hayError = false;
 
     const programs = await this.listaProgramas.toPromise();
-    const program = programs.find(program => program.id === this.form.value.programaId)
+    const program = programs.find(program => program.id === this.form.value.programaId);
 
     const usuarioMatricula: RequestUsuarioMatricula = {
       numeroIdentificacion: this.form.value.numeroIdentificacion,
@@ -57,14 +57,14 @@ export class MatricularComponent implements OnInit {
       email: this.form.value.email,
       ciudad: this.form.value.ciudad,
       direccion: this.form.value.direccion
-    }
+    };
 
     const matriculaCrearRequest: MatriculaCrearRequest = {
       programa: program,
-      usuarioMatricula: usuarioMatricula
-    }
+      usuarioMatricula
+    };
 
-    this.matriculaService.guardar(matriculaCrearRequest).subscribe(valor =>{
+    this.matriculaService.guardar(matriculaCrearRequest).subscribe(valor => {
       this.loading = true;
       this.form.reset();
       this.router.navigate(['matricula/ver-matricula', valor.valor]);
@@ -74,10 +74,10 @@ export class MatricularComponent implements OnInit {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 5000
-      })
+      });
       this.form.reset();
-    }); 
- 
+    });
+
   }
 
 }

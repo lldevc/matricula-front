@@ -13,12 +13,12 @@ export class DialogPagarComponent implements OnInit {
   public form: FormGroup;
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private router: Router
     ) {
       this.form = this.fb.group({
         id: ['', Validators.required]
-      })
+      });
     }
 
   ngOnInit(): void {
@@ -28,8 +28,8 @@ export class DialogPagarComponent implements OnInit {
     this.router.navigateByUrl('/matricula', { skipLocationChange: true }).then(() => {
       this.router.navigate(['matricula/pagar-matricula', this.form.value.id]);
       });
-    
-    
+
+
   }
 
 }

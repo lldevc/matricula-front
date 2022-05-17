@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpService } from "@core/services/http.service";
-import { HttpClient } from "@angular/common/http";
-import { MatriculaCrearRequest } from "../model/MatriculaCrearRequest"
+import { Injectable } from '@angular/core';
+import { HttpService } from '@core/services/http.service';
+import { HttpClient } from '@angular/common/http';
+import { MatriculaCrearRequest } from '../model/MatriculaCrearRequest';
 import { Matricula } from '../model/Matricula';
-import { MatriculaCrearResponse } from "../model/MatriculaCrearResponse";
-import { MatriculaPagarRequest } from "../model/MatriculaPagarRequest";
+import { MatriculaCrearResponse } from '../model/MatriculaCrearResponse';
+import { MatriculaPagarRequest } from '../model/MatriculaPagarRequest';
 
 @Injectable()
 export class MatriculaService {

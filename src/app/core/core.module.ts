@@ -13,19 +13,19 @@ import { SharedModule } from '@shared/shared.module';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { FooterComponent } from '@core/components/footer/footer.component';
 import { DialogComponent } from '@core/components/dialog/dialog.component';
-import { DialogPagarComponent } from '@core/components/dialog-pagar/dialog-pagar.component'
+import { DialogPagarComponent } from '@core/components/dialog-pagar/dialog-pagar.component';
 import { DialogConsultarComponent } from '@core/components/dialog-consultar/dialog-consultar.component';
 import { DialogEstudianteComponent } from '@core/components/dialog-estudiante/dialog-estudiante.component';
 import { DialogEditarEstudianteComponent } from '@core/components/dialog-editar-estudiante/dialog-editar-estudiante.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent, 
-    FooterComponent, 
-    DialogComponent, 
-    DialogPagarComponent, 
-    DialogConsultarComponent, 
-    DialogEstudianteComponent, 
+    NavbarComponent,
+    FooterComponent,
+    DialogComponent,
+    DialogPagarComponent,
+    DialogConsultarComponent,
+    DialogEstudianteComponent,
     DialogEditarEstudianteComponent
   ],
   imports: [
@@ -34,12 +34,12 @@ import { DialogEditarEstudianteComponent } from '@core/components/dialog-editar-
     SharedModule,
   ],
   exports: [
-    NavbarComponent, 
+    NavbarComponent,
     FooterComponent,
-    DialogComponent, 
-    DialogPagarComponent, 
-    DialogConsultarComponent, 
-    DialogEstudianteComponent, 
+    DialogComponent,
+    DialogPagarComponent,
+    DialogConsultarComponent,
+    DialogEstudianteComponent,
     DialogEditarEstudianteComponent
   ],
   providers: [

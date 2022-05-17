@@ -1,10 +1,10 @@
 export class UsuarioMatricula {
-    id:                   number;
+    id: number;
     numeroIdentificacion: number;
-    nombre:               string;
-    email:                string;
-    ciudad:               string;
-    direccion:            string;
+    nombre: string;
+    email: string;
+    ciudad: string;
+    direccion: string;
 
     constructor(id: number, numeroIdentificacion: number, nombre: string, email: string, ciudad: string, direccion: string) {
         this.id = id;

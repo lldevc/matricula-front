@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { HttpService } from "@core/services/http.service";
+import { Injectable } from '@angular/core';
+import { HttpService } from '@core/services/http.service';
 import { Programa } from '../model/programa';
 
 @Injectable()

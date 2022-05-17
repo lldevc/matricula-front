@@ -11,19 +11,19 @@ export class DialogConsultarComponent  {
   public form: FormGroup;
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private router: Router
     ) {
       this.form = this.fb.group({
         id: ['', Validators.required]
-      })
+      });
     }
 
-  
+
   buscar(){
     this.router.navigateByUrl('/matricula', { skipLocationChange: true }).then(() => {
       this.router.navigate(['matricula/ver-matricula', this.form.value.id]);
-      }); 
+      });
 
   }
 

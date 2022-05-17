@@ -36,21 +36,21 @@ describe('NavbarComponent', () => {
 
   it('Debe abrir el componente dialogPagar', () => {
     component.openDialogPagar();
-    fixture.detectChanges()
+    fixture.detectChanges();
     const dialgoEditarUsuario = document.getElementById('titulo');
     expect(dialgoEditarUsuario.innerText).toEqual('Pagar matricula');
   });
 
   it('Debe abrir el componente dialogEstudiante', () => {
     component.openDialogEstudiante();
-    fixture.detectChanges()
+    fixture.detectChanges();
     const dialgoEditarUsuario = document.getElementById('titulo');
     expect(dialgoEditarUsuario.innerText).toEqual('Buscar estudiante');
   });
 
   it('Debe abrir el componente dialogConsultar', () => {
     component.openDialogConsultar();
-    fixture.detectChanges()
+    fixture.detectChanges();
     const dialgoEditarUsuario = document.getElementById('titulo');
     expect(dialgoEditarUsuario.innerText).toEqual('Consultar matricula');
   });

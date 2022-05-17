@@ -13,8 +13,8 @@ describe('DialogConsultarComponent', () => {
   let component: DialogConsultarComponent;
   let fixture: ComponentFixture<DialogConsultarComponent>;
 
-  let location: Location
-  let router: Router
+  let location: Location;
+  let router: Router;
 
   const routes = [
     {path: 'matricula/ver-matricula/:id', component: {}}
@@ -48,32 +48,32 @@ describe('DialogConsultarComponent', () => {
   });
 
   it('Deberia validar que el formulario es invalido', () => {
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('');
     expect(form.invalid).toBeTrue();
-  })
+  });
 
   it('Deberia validar que el formulario es valido', () => {
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('1000');
     expect(form.valid).toBeTrue();
-  })
+  });
 
   it('deberia navegar a ver-matricula', fakeAsync(() => {
     router.initialNavigation();
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('1000');
 
-    let btn = fixture.debugElement.query(By.css('button'));
+    const btn = fixture.debugElement.query(By.css('button'));
     btn.nativeElement.click();
     router.navigate(['/matricula/ver-matricula/1000']);
 
     tick();
 
-    expect(router.url).toBe('/matricula/ver-matricula/1000')
+    expect(router.url).toBe('/matricula/ver-matricula/1000');
     expect(location.path()).toBe('/matricula/ver-matricula/1000');
   }));
 

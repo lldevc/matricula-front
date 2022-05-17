@@ -11,12 +11,12 @@ export class DialogEstudianteComponent implements OnInit {
   public form: FormGroup;
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private router: Router
     ) {
       this.form = this.fb.group({
         id: ['', Validators.required]
-      })
+      });
     }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class DialogEstudianteComponent implements OnInit {
     this.router.navigateByUrl('/usuario', { skipLocationChange: true }).then(() => {
       this.router.navigate(['usuario/perfil', this.form.value.id]);
       });
-    
+
   }
 
 }

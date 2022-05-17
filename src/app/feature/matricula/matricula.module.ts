@@ -6,7 +6,7 @@ import { MatriculaRoutingModule } from './matricula-routing.module';
 import { ProgramaModule } from './../programa/programa.module';
 
 // Componentes
-import { MatricularComponent } from './components/matricular/matricular.component';
+import { MatricularComponent } from './components/crear-matricula/matricular.component';
 import { VerMatriculaComponent } from './components/ver-matricula/ver-matricula.component';
 import { PagarMatriculaComponent } from './components/pagar-matricula/pagar-matricula.component';
 import { MatriculaComponent } from './components/matricula/matricula.component';

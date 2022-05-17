@@ -13,8 +13,8 @@ describe('DialogEstudianteComponent', () => {
   let component: DialogEstudianteComponent;
   let fixture: ComponentFixture<DialogEstudianteComponent>;
 
-  let location: Location
-  let router: Router
+  let location: Location;
+  let router: Router;
 
   const routes = [
     {path: 'usuario/perfil/:id', component: {}}
@@ -23,7 +23,7 @@ describe('DialogEstudianteComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DialogEstudianteComponent ],
-      imports:[
+      imports: [
         RouterTestingModule.withRoutes(routes),
         FormsModule,
         ReactiveFormsModule,
@@ -47,32 +47,32 @@ describe('DialogEstudianteComponent', () => {
   });
 
   it('Deberia validar que el formulario es invalido', () => {
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('');
     expect(form.invalid).toBeTrue();
-  })
+  });
 
   it('Deberia validar que el formulario es valido', () => {
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('1111');
     expect(form.valid).toBeTrue();
-  })
+  });
 
   it('deberia navegar a perfil', fakeAsync(() => {
     router.initialNavigation();
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('1111');
 
-    let btn = fixture.debugElement.query(By.css('button'));
+    const btn = fixture.debugElement.query(By.css('button'));
     btn.nativeElement.click();
     router.navigate(['/usuario/perfil/1111']);
 
     tick();
 
-    expect(router.url).toBe('/usuario/perfil/1111')
+    expect(router.url).toBe('/usuario/perfil/1111');
     expect(location.path()).toBe('/usuario/perfil/1111');
   }));
 });

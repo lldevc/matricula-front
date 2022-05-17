@@ -37,7 +37,7 @@ describe('PagarMatriculaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PagarMatriculaComponent ],
-      imports:[
+      imports: [
         HttpClientModule,
         RouterTestingModule,
         MatDialogModule,
@@ -81,40 +81,40 @@ describe('PagarMatriculaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
     fixture.detectChanges();
-    expect(component.idUrl).toEqual('1000')
+    expect(component.idUrl).toEqual('1000');
     matriculaService.consultarPorId(component.idUrl).subscribe(resultado => {
-        expect(resultado).toEqual(dummyMatricula)
+        expect(resultado).toEqual(dummyMatricula);
       });
   });
 
   it('Debe pagar  la matricula al enviar la tarjeta de credito y abrir dialogo de exito', fakeAsync(() => {
-    (<HTMLInputElement>document.getElementById('card')).value = '1111222233334444';
-    (<HTMLInputElement>document.getElementById('anio')).value = '2050';
-    (<HTMLInputElement>document.getElementById('mes')).value = '12';
-    (<HTMLInputElement>document.getElementById('cvv')).value = '123';
+    (document.getElementById('card') as HTMLInputElement).value = '1111222233334444';
+    (document.getElementById('anio') as HTMLInputElement).value = '2050';
+    (document.getElementById('mes') as HTMLInputElement).value = '12';
+    (document.getElementById('cvv') as HTMLInputElement).value = '123';
 
     document.getElementById('btn-pagar').click();
 
     component.openDialog();
-    fixture.detectChanges()
+    fixture.detectChanges();
     const dialgoEditarUsuario = document.getElementById('titulo');
     expect(dialgoEditarUsuario.innerText).toEqual('Pago Exitoso');
     const req = httpMock.expectOne('/inscripcion-ms/matriculas/pagar/1000');
     expect(req.request.method).toBe('PUT');
-    
+
   }));
 
-  it('Se debe ejecutar el metodo pagar()',fakeAsync(() => {
+  it('Se debe ejecutar el metodo pagar()', fakeAsync(() => {
     component.pagar();
     component.openDialog();
-    fixture.detectChanges()
+    fixture.detectChanges();
     const dialgoEditarUsuario = document.getElementById('titulo');
     expect(dialgoEditarUsuario.innerText).toEqual('Pago Exitoso');
     const req = httpMock.expectOne('/inscripcion-ms/matriculas/pagar/1000');
     expect(req.request.method).toBe('PUT');
   }));
 
-  it('Se debe ejecutar el metodo pagar matricula',fakeAsync(() => {
+  it('Se debe ejecutar el metodo pagar matricula', fakeAsync(() => {
     const dummyMatriculaPagarRequest: MatriculaPagarRequest = {
       id: 1000,
       valor: 700000.0,
@@ -134,9 +134,9 @@ describe('PagarMatriculaComponent', () => {
     };
 
     matriculaService.pagar(dummyMatriculaPagarRequest).subscribe((res) => {
-      expect(res).toBeNull()
+      expect(res).toBeNull();
       component.openDialog();
-      fixture.detectChanges()
+      fixture.detectChanges();
       const dialgoEditarUsuario = document.getElementById('titulo');
       expect(dialgoEditarUsuario.innerText).toEqual('Pago Exitoso');
     });

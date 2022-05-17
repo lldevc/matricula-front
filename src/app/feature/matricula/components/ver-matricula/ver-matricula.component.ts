@@ -12,26 +12,26 @@ import { MatriculaService } from '../../shared/service/matricula.service';
 })
 export class VerMatriculaComponent implements OnInit {
 
-  formateador = new Intl.NumberFormat("en", { style: "currency", "currency": "USD" });
+  formateador = new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' });
 
   valorMatricula;
   idUrl: string;
-  nombreUsuario: string = 'Empty';
+  nombreUsuario = 'Empty';
   identificacion: number = null;
   fechaSinRecargo: string;
   fechaLimite: string;
-  nombrePrograma: string = 'Empty';
-  estadoMatricula: string = 'Empty';
+  nombrePrograma = 'Empty';
+  estadoMatricula = 'Empty';
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private matriculaService: MatriculaService,
     private router: Router,
     private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => this.idUrl = params['id']);
+    this.route.params.subscribe((params) => this.idUrl = params.id);
     this.matriculaService.consultarPorId(this.idUrl).subscribe(matricula => {
       this.valorMatricula = this.formateador.format(matricula.valor);
       this.nombreUsuario = matricula.usuarioMatricula.nombre;
@@ -48,7 +48,7 @@ export class VerMatriculaComponent implements OnInit {
         duration: 6000
       });
       this.router.navigate(['home']);
-    })
+    });
   }
 
   pagar(){

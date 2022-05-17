@@ -26,8 +26,8 @@ describe('MatricularComponent', () => {
   let programaService: ProgramaService;
   let httpMock: HttpTestingController;
 
-  let location: Location
-  let router: Router
+  let location: Location;
+  let router: Router;
 
   const routes = [
     { path: 'matricula/ver-matricula/:id', component: {} }
@@ -79,84 +79,84 @@ describe('MatricularComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
     programaService.consultar().subscribe(resultado => {
-      expect(3).toBe(resultado.length)
+      expect(3).toBe(resultado.length);
     });
   });
 
   it('Debe validar que el formulario no sea valido sin nombre', () => {
     const form = component.form;
-    form.controls['nombre'].setValue('');
-    form.controls['numeroIdentificacion'].setValue(1111);
-    form.controls['email'].setValue('test@test.com');
-    form.controls['ciudad'].setValue('test');
-    form.controls['direccion'].setValue('test');
-    form.controls['programaId'].setValue('1');
+    form.controls.nombre.setValue('');
+    form.controls.numeroIdentificacion.setValue(1111);
+    form.controls.email.setValue('test@test.com');
+    form.controls.ciudad.setValue('test');
+    form.controls.direccion.setValue('test');
+    form.controls.programaId.setValue('1');
     expect(form.invalid).toBeTrue();
   });
 
   it('Debe validar que el formulario no sea valido sin numero de identificacion', () => {
     const form = component.form;
-    form.controls['nombre'].setValue('test');
-    form.controls['numeroIdentificacion'].setValue('');
-    form.controls['email'].setValue('test@test.com');
-    form.controls['ciudad'].setValue('test');
-    form.controls['direccion'].setValue('test');
-    form.controls['programaId'].setValue('1');
+    form.controls.nombre.setValue('test');
+    form.controls.numeroIdentificacion.setValue('');
+    form.controls.email.setValue('test@test.com');
+    form.controls.ciudad.setValue('test');
+    form.controls.direccion.setValue('test');
+    form.controls.programaId.setValue('1');
     expect(form.invalid).toBeTrue();
   });
 
   it('Debe validar que el formulario no sea valido sin email', () => {
     const form = component.form;
-    form.controls['nombre'].setValue('test');
-    form.controls['numeroIdentificacion'].setValue(1111);
-    form.controls['email'].setValue('');
-    form.controls['ciudad'].setValue('test');
-    form.controls['direccion'].setValue('test');
-    form.controls['programaId'].setValue('1');
+    form.controls.nombre.setValue('test');
+    form.controls.numeroIdentificacion.setValue(1111);
+    form.controls.email.setValue('');
+    form.controls.ciudad.setValue('test');
+    form.controls.direccion.setValue('test');
+    form.controls.programaId.setValue('1');
     expect(form.invalid).toBeTrue();
   });
 
   it('Debe validar que el formulario no sea valido sin ciudad', () => {
     const form = component.form;
-    form.controls['nombre'].setValue('test');
-    form.controls['numeroIdentificacion'].setValue(1111);
-    form.controls['email'].setValue('test@test.com');
-    form.controls['ciudad'].setValue('');
-    form.controls['direccion'].setValue('test');
-    form.controls['programaId'].setValue('1');
+    form.controls.nombre.setValue('test');
+    form.controls.numeroIdentificacion.setValue(1111);
+    form.controls.email.setValue('test@test.com');
+    form.controls.ciudad.setValue('');
+    form.controls.direccion.setValue('test');
+    form.controls.programaId.setValue('1');
     expect(form.invalid).toBeTrue();
   });
 
   it('Debe validar que el formulario no sea valido sin direccion', () => {
     const form = component.form;
-    form.controls['nombre'].setValue('test');
-    form.controls['numeroIdentificacion'].setValue(1111);
-    form.controls['email'].setValue('test@test.com');
-    form.controls['ciudad'].setValue('test');
-    form.controls['direccion'].setValue('');
-    form.controls['programaId'].setValue('1');
+    form.controls.nombre.setValue('test');
+    form.controls.numeroIdentificacion.setValue(1111);
+    form.controls.email.setValue('test@test.com');
+    form.controls.ciudad.setValue('test');
+    form.controls.direccion.setValue('');
+    form.controls.programaId.setValue('1');
     expect(form.invalid).toBeTrue();
   });
 
   it('Debe validar que el formulario no sea valido sin un idioma seleccionado', () => {
     const form = component.form;
-    form.controls['nombre'].setValue('test');
-    form.controls['numeroIdentificacion'].setValue(1111);
-    form.controls['email'].setValue('test@test.com');
-    form.controls['ciudad'].setValue('test');
-    form.controls['direccion'].setValue('test');
-    form.controls['programaId'].setValue('');
+    form.controls.nombre.setValue('test');
+    form.controls.numeroIdentificacion.setValue(1111);
+    form.controls.email.setValue('test@test.com');
+    form.controls.ciudad.setValue('test');
+    form.controls.direccion.setValue('test');
+    form.controls.programaId.setValue('');
     expect(form.invalid).toBeTrue();
   });
 
   it('Debe validar que el formulario es valido', () => {
     const form = component.form;
-    form.controls['nombre'].setValue('test');
-    form.controls['numeroIdentificacion'].setValue(1111);
-    form.controls['email'].setValue('test@test.com');
-    form.controls['ciudad'].setValue('test');
-    form.controls['direccion'].setValue('test');
-    form.controls['programaId'].setValue('1');
+    form.controls.nombre.setValue('test');
+    form.controls.numeroIdentificacion.setValue(1111);
+    form.controls.email.setValue('test@test.com');
+    form.controls.ciudad.setValue('test');
+    form.controls.direccion.setValue('test');
+    form.controls.programaId.setValue('1');
     expect(form.valid).toBeTrue();
   });
 
@@ -164,7 +164,7 @@ describe('MatricularComponent', () => {
     router.initialNavigation();
 
     programaService.consultar().subscribe(resultado => {
-      expect(3).toBe(resultado.length)
+      expect(3).toBe(resultado.length);
     });
 
     const dummyMatriculaRequest: MatriculaCrearRequest = {
@@ -184,7 +184,7 @@ describe('MatricularComponent', () => {
 
     matriculaService.guardar(dummyMatriculaRequest).subscribe((respuesta) => {
       expect(respuesta).toEqual(dummyMatriculaRespone);
-      let btn = fixture.debugElement.query(By.css('#matricular'));
+      const btn = fixture.debugElement.query(By.css('#matricular'));
       btn.nativeElement.click();
       router.navigate([`matricula/ver-matricula/${respuesta.valor}`]);
       tick();

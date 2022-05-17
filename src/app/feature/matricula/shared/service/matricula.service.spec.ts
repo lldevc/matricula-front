@@ -116,7 +116,7 @@ describe('MatriculaService', () => {
     };
 
     service.pagar(dummyMatriculaPagarRequest).subscribe((res) => {
-      expect(res).toBeNull()
+      expect(res).toBeNull();
     });
     const req = httpMock.expectOne('/inscripcion-ms/matriculas/pagar/1000');
     expect(req.request.method).toBe('PUT');

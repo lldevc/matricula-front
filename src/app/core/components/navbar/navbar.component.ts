@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
 
   openDialogPagar(): void {
     const dialogRef = this.dialog.open(DialogPagarComponent);

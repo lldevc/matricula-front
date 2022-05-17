@@ -15,7 +15,7 @@ import { UsuarioMatriculaRoutingModule } from './usuario-matricula-routing.modul
     RouterModule,
     UsuarioMatriculaRoutingModule
   ],
-  exports:[
+  exports: [
     PerfilComponent
   ],
   providers: [UsuarioMatriculaService]

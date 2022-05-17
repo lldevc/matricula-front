@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecurityGuard } from '@core/guard/security.guard';
-import { MatricularComponent } from './feature/matricula/components/matricular/matricular.component';
+import { MatricularComponent } from './feature/matricula/components/crear-matricula/matricular.component';
 
 
 const routes: Routes = [
@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: MatricularComponent, canActivate: [SecurityGuard]  },
   { path: 'matricula', loadChildren: () => import('./feature/matricula/matricula.module').then(mod => mod.MatriculaModule) },
   { path: 'usuario', loadChildren: () => import('./feature/usuarioMatricula/usuario-matricula.module').then(mod => mod.UsuarioMatriculaModule)}
-  
+
 ];
 
 @NgModule({

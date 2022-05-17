@@ -10,7 +10,7 @@ describe('MatriculaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ MatriculaComponent ],
-      imports:[BrowserAnimationsModule]
+      imports: [BrowserAnimationsModule]
     })
     .compileComponents();
   });

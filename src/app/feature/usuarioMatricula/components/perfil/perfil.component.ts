@@ -51,14 +51,14 @@ export class PerfilComponent implements OnInit {
               duration: 6000
             });
             this.router.navigate(['home']);
-          
+
         }
       });
     });
   }
 
   openDialogEditarEstudiante(): void {
-    const dialogRef = this.dialog.open(DialogEditarEstudianteComponent,{
+    const dialogRef = this.dialog.open(DialogEditarEstudianteComponent, {
       data: {id: this.id, numeroIdentificacion: this.identificacion, nombre: this.nombre, email: this.email, ciudad: this.ciudad, direccion: this.direccion}
     });
 

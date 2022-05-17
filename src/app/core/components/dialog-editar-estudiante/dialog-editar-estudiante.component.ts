@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PerfilComponent } from '../../../feature/usuarioMatricula/components/perfil/perfil.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UsuarioMatricula } from '../../../feature/usuarioMatricula/shared/model/usuarioMatricula';
-import { UsuarioMatriculaService } from 'src/app/feature/usuarioMatricula/shared/usuarioMatricula.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UsuarioMatricula } from './../../../feature/usuarioMatricula/shared/model/usuarioMatricula';
+import { PerfilComponent } from './../../../feature/usuarioMatricula/components/perfil/perfil.component';
+import { UsuarioMatriculaService } from './../../../feature/usuarioMatricula/shared/usuarioMatricula.service';
 
 @Component({
   selector: 'app-dialog-editar-estudiante',
@@ -29,7 +29,7 @@ export class DialogEditarEstudianteComponent implements OnInit {
       email: [data.email, Validators.required],
       ciudad: [data.ciudad, Validators.required],
       direccion: [data.direccion, Validators.required],
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -53,13 +53,13 @@ export class DialogEditarEstudianteComponent implements OnInit {
       this.router.navigateByUrl('/usuario', { skipLocationChange: true }).then(() => {
         this.router.navigate(['usuario/perfil', this.data.numeroIdentificacion]);
         });
-      
+
     }, (err: HttpErrorResponse) => {
       this._snackBar.open(err.error.mensaje, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 5000
-      })
+      });
     });
   }
 

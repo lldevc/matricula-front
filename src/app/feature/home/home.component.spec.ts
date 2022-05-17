@@ -10,7 +10,7 @@ describe('HomeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      imports:[BrowserAnimationsModule]
+      imports: [BrowserAnimationsModule]
     })
     .compileComponents();
   }));

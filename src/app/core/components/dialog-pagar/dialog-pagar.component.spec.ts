@@ -13,8 +13,8 @@ describe('DialogPagarComponent', () => {
   let component: DialogPagarComponent;
   let fixture: ComponentFixture<DialogPagarComponent>;
 
-  let location: Location
-  let router: Router
+  let location: Location;
+  let router: Router;
 
   const routes = [
     {path: 'matricula/pagar-matricula/:id', component: {}}
@@ -23,7 +23,7 @@ describe('DialogPagarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DialogPagarComponent ],
-      imports:[
+      imports: [
         RouterTestingModule.withRoutes(routes),
         FormsModule,
         ReactiveFormsModule,
@@ -47,32 +47,32 @@ describe('DialogPagarComponent', () => {
   });
 
   it('Deberia validar que el formulario es invalido', () => {
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('');
     expect(form.invalid).toBeTrue();
-  })
+  });
 
   it('Deberia validar que el formulario es valido', () => {
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('1000');
     expect(form.valid).toBeTrue();
-  })
+  });
 
   it('deberia navegar a pagar-matricula', fakeAsync(() => {
     router.initialNavigation();
-    const form = component.form
-    const id = form.controls['id'];
+    const form = component.form;
+    const id = form.controls.id;
     id.setValue('1000');
 
-    let btn = fixture.debugElement.query(By.css('button'));
+    const btn = fixture.debugElement.query(By.css('button'));
     btn.nativeElement.click();
     router.navigate(['/matricula/pagar-matricula/1000']);
 
     tick();
 
-    expect(router.url).toBe('/matricula/pagar-matricula/1000')
+    expect(router.url).toBe('/matricula/pagar-matricula/1000');
     expect(location.path()).toBe('/matricula/pagar-matricula/1000');
   }));
 

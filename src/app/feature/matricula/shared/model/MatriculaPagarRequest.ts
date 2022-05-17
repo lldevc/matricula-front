@@ -1,36 +1,36 @@
 export interface MatriculaPagarRequest {
-    id:                        number;
-    programa:                  Programa;
-    valor:                     number;
-    usuarioMatricula:          UsuarioMatricula;
-    recargo:                   boolean;
-    estadoDePago:              string;
-    fechaCreacion:             Date;
+    id: number;
+    programa: Programa;
+    valor: number;
+    usuarioMatricula: UsuarioMatricula;
+    recargo: boolean;
+    estadoDePago: string;
+    fechaCreacion: Date;
     fechaLimitePagoSinRecargo: Date;
-    fechaMaximaPago:           Date;
-    medioDePago:               MedioDePago;
+    fechaMaximaPago: Date;
+    medioDePago: MedioDePago;
 }
 
 export interface MedioDePago {
-    numeroTarjeta:   string;
-    anioVecimiento:  string;
-    mesVecimiento:   string;
+    numeroTarjeta: string;
+    anioVecimiento: string;
+    mesVecimiento: string;
     codigoSeguridad: string;
 }
 
 interface Programa {
-    id:              number;
-    nombre:          string;
-    precio:          number;
-    recargo:         number;
+    id: number;
+    nombre: string;
+    precio: number;
+    recargo: number;
     diasParaRecargo: number;
 }
 
 interface UsuarioMatricula {
-    id:                   number;
+    id: number;
     numeroIdentificacion: number;
-    nombre:               string;
-    email:                string;
-    ciudad:               string;
-    direccion:            string;
+    nombre: string;
+    email: string;
+    ciudad: string;
+    direccion: string;
 }

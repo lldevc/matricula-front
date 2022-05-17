@@ -15,15 +15,15 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { Location } from '@angular/common';
 import { By } from '@angular/platform-browser';
-import { Router, Routes } from '@angular/router'
+import { Router, Routes } from '@angular/router';
 
 describe('VerMatriculaComponent', () => {
   let component: VerMatriculaComponent;
   let fixture: ComponentFixture<VerMatriculaComponent>;
   let matriculaService: MatriculaService;
 
-  let location: Location
-  let router: Router
+  let location: Location;
+  let router: Router;
 
   const routes = [
     {path: 'matricula/pagar-matricula/:id', component: {}}
@@ -44,7 +44,7 @@ describe('VerMatriculaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ VerMatriculaComponent ],
-      imports:[
+      imports: [
         HttpClientModule,
         RouterTestingModule.withRoutes(routes),
         MatSnackBarModule,
@@ -66,7 +66,7 @@ describe('VerMatriculaComponent', () => {
     .compileComponents();
   });
 
-  
+
   beforeEach(() => {
     router = TestBed.inject(Router);
     location = TestBed.inject(Location);
@@ -92,13 +92,13 @@ describe('VerMatriculaComponent', () => {
   it('deberia navegar a pagar-matricula', fakeAsync(() => {
     router.initialNavigation();
 
-    let btn = fixture.debugElement.query(By.css('#pagar'));
+    const btn = fixture.debugElement.query(By.css('#pagar'));
     btn.nativeElement.click();
     router.navigate(['/matricula/pagar-matricula/1000']);
 
     tick();
 
-    expect(router.url).toBe('/matricula/pagar-matricula/1000')
+    expect(router.url).toBe('/matricula/pagar-matricula/1000');
     expect(location.path()).toBe('/matricula/pagar-matricula/1000');
   }));
 });

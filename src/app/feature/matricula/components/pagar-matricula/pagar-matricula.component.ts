@@ -16,7 +16,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class PagarMatriculaComponent implements OnInit {
 
-  formateador = new Intl.NumberFormat("en", { style: "currency", "currency": "USD" });
+  formateador = new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' });
 
   ref;
   valor;
@@ -24,7 +24,7 @@ export class PagarMatriculaComponent implements OnInit {
   idUrl: string;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private matriculaService: MatriculaService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -38,7 +38,7 @@ export class PagarMatriculaComponent implements OnInit {
         this.matricula = matricula;
         this.ref = matricula.id;
         this.valor = this.formateador.format(matricula.valor);
-      },() => {
+      }, () => {
         this._snackBar.open('Matricula no encontrada!!', '', {
           horizontalPosition: 'center',
           verticalPosition: 'top',
@@ -53,14 +53,14 @@ export class PagarMatriculaComponent implements OnInit {
   pagar() {
 
 
-    const re = /\s/gi
+    const re = /\s/gi;
 
     const medioDePago: MedioDePago = {
-      numeroTarjeta: (<HTMLInputElement>document.getElementById("card")).value.replace(re, ''),
-      anioVecimiento: (<HTMLInputElement>document.getElementById("anio")).value,
-      mesVecimiento: (<HTMLInputElement>document.getElementById("mes")).value,
-      codigoSeguridad: (<HTMLInputElement>document.getElementById("cvv")).value
-    }
+      numeroTarjeta: (document.getElementById('card') as HTMLInputElement).value.replace(re, ''),
+      anioVecimiento: (document.getElementById('anio') as HTMLInputElement).value,
+      mesVecimiento: (document.getElementById('mes') as HTMLInputElement).value,
+      codigoSeguridad: (document.getElementById('cvv') as HTMLInputElement).value
+    };
 
     const matriculaPagarRequest: MatriculaPagarRequest = {
       id: this.matricula.id,
@@ -72,16 +72,16 @@ export class PagarMatriculaComponent implements OnInit {
       fechaCreacion: this.matricula.fechaCreacion,
       fechaLimitePagoSinRecargo: this.matricula.fechaLimitePagoSinRecargo,
       fechaMaximaPago: this.matricula.fechaMaximaPago,
-      medioDePago: medioDePago
+      medioDePago
     };
-    this.matriculaService.pagar(matriculaPagarRequest).subscribe(() =>{
-      this.openDialog()
+    this.matriculaService.pagar(matriculaPagarRequest).subscribe(() => {
+      this.openDialog();
     }, (err: HttpErrorResponse) => {
       this._snackBar.open(err.error.mensaje, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 5000
-      })
+      });
     });
   }
 
@@ -92,28 +92,28 @@ export class PagarMatriculaComponent implements OnInit {
   }
 
   onKeyUp(x) {
-    let valorInput = x.target.value;
+    const valorInput = x.target.value;
 
-    (<HTMLInputElement>document.getElementById("card"))
+    (document.getElementById('card') as HTMLInputElement)
       .value = valorInput.replace(/\s/g, '') // elimina espacios en blancl
         .replace(/\D/g, '')        // elimina las lestras
-        .replace(/([0-9]{4})/g, '$1 ')  //espacios cada 4 numeros
+        .replace(/([0-9]{4})/g, '$1 ')  // espacios cada 4 numeros
         .trim();
   }
 
   onKeyUpMes(x) {
-    let valorInput = x.target.value;
-    (<HTMLInputElement>document.getElementById("mes"))
+    const valorInput = x.target.value;
+    (document.getElementById('mes') as HTMLInputElement)
       .value = valorInput.replace(/\s/g, '') // elimina espacios en blanco
-        .replace(/\D/g, '')        // elimina las lestras 
+        .replace(/\D/g, '')        // elimina las lestras
         .trim();
   }
 
   onKeyUpAnio(x) {
-    let valorInput = x.target.value;
-    (<HTMLInputElement>document.getElementById("anio"))
+    const valorInput = x.target.value;
+    (document.getElementById('anio') as HTMLInputElement)
       .value = valorInput.replace(/\s/g, '') // elimina espacios en blanco
-        .replace(/\D/g, '')        // elimina las lestras 
+        .replace(/\D/g, '')        // elimina las lestras
         .trim();
   }
 

@@ -11,8 +11,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 describe('DialogComponent', () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
-  let location: Location
-  let router: Router
+  let location: Location;
+  let router: Router;
 
   const routes = [
     {path: 'home', component: {}}
@@ -21,7 +21,7 @@ describe('DialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DialogComponent ],
-      imports: [ 
+      imports: [
         RouterTestingModule.withRoutes(routes),
         BrowserAnimationsModule
       ]
@@ -44,11 +44,11 @@ describe('DialogComponent', () => {
 
   it('deberia navegar a home', fakeAsync(() => {
     router.initialNavigation();
-    let btn = fixture.debugElement.query(By.css('#btn'));
+    const btn = fixture.debugElement.query(By.css('#btn'));
     btn.nativeElement.click();
     router.navigate(['/home']);
     tick();
-    expect(router.url).toBe(`/home`)
+    expect(router.url).toBe(`/home`);
     expect(location.path()).toBe('/home');
   }));
 });
