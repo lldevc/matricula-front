@@ -35,14 +35,13 @@ describe('workspace-project Matricula', () => {
         await matricula.ingresarDirecccion(DIRECCION);
         await matricula.clickSelectMatricula();
         await matricula.clickOpcionIngles();
-        browser.sleep(1500);
         await matricula.clickBotonMatricular();
         await browser.waitForAngular();
 
         await navBar.clickBotonMatriculado();
+        await browser.waitForAngular();
         await expect(page.getTextOfElement('.titulo-buscar-estudiante')).toEqual('Buscar estudiante');
         await dialogOpen.ingresarIdentificacionEstudiante(NUMERO_IDENTIFIACION);
-        browser.sleep(1500);
         await dialogOpen.clickBotonConsultaEstudiante();
         await browser.waitForAngular();
 
@@ -53,7 +52,6 @@ describe('workspace-project Matricula', () => {
         await browser.waitForAngular();
         await expect(page.getTextOfElementById('estado-matricula')).toEqual(ESTADO_MATRICULA);
 
-        browser.sleep(700)
     });
 
     it('Deberia ir a pago de matricula y pagar la matricula', async () => {
@@ -63,7 +61,6 @@ describe('workspace-project Matricula', () => {
         await navBar.clickBotonPagos();
         await dialogOpen.ingresarIdMatriculaParaPago(ID_MATRICULA);
         await expect(page.getTextOfElement('.titulo-dialog-pagar')).toEqual('Pagar matricula');
-        browser.sleep(1500);
         await dialogOpen.clickBotonConsultaPagoMatricula();
         await browser.waitForAngular();
 
@@ -72,7 +69,6 @@ describe('workspace-project Matricula', () => {
         await matricula.IngresarMesDeTarjeta('11');
         await matricula.IngresarAnioDeTarjeta('2050');
         await matricula.IngresarCvvDeTarjeta('111');
-        browser.sleep(1500);
         await matricula.clickBotonPagar();
         await browser.waitForAngular();
 
@@ -80,14 +76,11 @@ describe('workspace-project Matricula', () => {
         await browser.waitForAngular();
 
         await navBar.clickBotonConsulta();
-        browser.sleep(1500);
         await expect(page.getTextOfElementById('titulo')).toEqual('Consultar matricula');
         await dialogOpen.ingresarIdMatriculaParaConsulta(ID_MATRICULA);
-        browser.sleep(1500);
         await dialogOpen.clickBotonConsultaMatricula();
         await browser.waitForAngular();
 
-        browser.sleep(2000);
         await expect(page.getTextOfElementById('estado-matricula')).toEqual(ESTADO_MATRICULA);
 
     });
