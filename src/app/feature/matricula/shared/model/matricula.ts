@@ -1,5 +1,5 @@
-import { Programa } from 'src/app/feature/programa/shared/model/programa';
-import { UsuarioMatricula } from '../../../usuarioMatricula/shared/model/usuarioMatricula';
+import { Programa } from '@programa/shared/model/programa';
+import { UsuarioMatricula } from '@usuario-matricula/shared/model/usuarioMatricula';
 export class Matricula {
     id: number;
     valor: number;

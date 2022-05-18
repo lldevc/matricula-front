@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
-import { UsuarioMatricula } from './../../../feature/usuarioMatricula/shared/model/usuarioMatricula';
-import { PerfilComponent } from './../../../feature/usuarioMatricula/components/perfil/perfil.component';
-import { UsuarioMatriculaService } from './../../../feature/usuarioMatricula/shared/usuarioMatricula.service';
+import { UsuarioMatricula } from '@usuario-matricula/shared/model/usuarioMatricula';
+import { PerfilComponent } from '@usuario-matricula/components/perfil/perfil.component';
+import { UsuarioMatriculaService } from '@usuario-matricula/shared/usuarioMatricula.service';
 
 @Component({
   selector: 'app-dialog-editar-estudiante',

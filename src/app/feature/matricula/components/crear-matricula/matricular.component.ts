@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Programa } from 'src/app/feature/programa/shared/model/programa';
-import { ProgramaService } from '../../../programa/shared/service/programa.service';
-import { MatriculaService } from '../../shared/service/matricula.service';
-import { MatriculaCrearRequest, RequestUsuarioMatricula } from '../../shared/model/MatriculaCrearRequest';
+import { Programa } from '@programa/shared/model/programa';
+import { ProgramaService } from '@programa/shared/service/programa.service';
+import { MatriculaService } from '@matricula/shared/service/matricula.service';
+import { MatriculaCrearRequest, RequestUsuarioMatricula } from '@matricula/shared/model/MatriculaCrearRequest';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';

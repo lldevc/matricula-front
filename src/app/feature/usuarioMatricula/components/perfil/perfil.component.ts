@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatriculaService } from '../../../matricula/shared/service/matricula.service';
-import { DialogEditarEstudianteComponent } from '../../../../core/components/dialog-editar-estudiante/dialog-editar-estudiante.component';
+import { MatriculaService } from '@matricula/shared/service/matricula.service';
+import { DialogEditarEstudianteComponent } from '@core/components/dialog-editar-estudiante/dialog-editar-estudiante.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

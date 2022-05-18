@@ -1,4 +1,4 @@
-import { Programa } from '../../../programa/shared/model/programa';
+import { Programa } from '@programa/shared/model/programa';
 
 export interface MatriculaCrearRequest {
     programa: Programa;
